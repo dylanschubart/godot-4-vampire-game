@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp4p63t4wmqaq"]
+[gd_scene load_steps=4 format=3 uid="uid://bbglhr6632n3v"]
 
 [ext_resource type="PackedScene" uid="uid://ciuijy7p2vab4" path="res://Scenes/test.tscn" id="1_x6snh"]
+[ext_resource type="Texture2D" uid="uid://y7e8v0psr20y" path="res://Assets/MareNew-AttackUP.png" id="2_remh6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80iwk"]
 size = Vector2(1255, 28)
@@ -15,3 +16,7 @@ shape = SubResource("RectangleShape2D_80iwk")
 
 [node name="Node2D" parent="." instance=ExtResource("1_x6snh")]
 position = Vector2(2, -80)
+
+[node name="MareNew-attackUp" type="Sprite2D" parent="."]
+position = Vector2(325, -75)
+texture = ExtResource("2_remh6")
