@@ -29,18 +29,21 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-	#jumping stuff
+	#always flip on direction changes
+	if (direction > 0): _animated_sprite.flip_h = false;
+	if (direction < 0): _animated_sprite.flip_h = true;
+	#jumping animation stuff
 	if (!jumping and velocity.y < 0):
 		if (direction != 0): _animated_sprite.play("Jump_Start_Moving"); jumping = true; return;
 		else: _animated_sprite.play("Jump_Start_Standstill"); jumping = true; return;
-	#end jumping
+	#end jumping animation
 	if (jumping and is_on_floor()):
 		if (_animated_sprite.get_animation() == 'Jump_Start_Moving'): _animated_sprite.play("Jump_End_Moving"); jumping = false; return;
 		else: _animated_sprite.play("Jump_End_Standstill"); jumping = false; return;
-	#moving stuff
-	if ((_animated_sprite.is_playing() == true and _animated_sprite.get_animation() != 'Jump_End_Moving' and _animated_sprite.get_animation() != 'Jump_End_Standstill') or (_animated_sprite.is_playing() != true and (_animated_sprite.get_animation() == 'Jump_End_Moving' or _animated_sprite.get_animation() == 'Jump_End_Standstill'))):
-		if (!jumping and direction > 0): _animated_sprite.flip_h = false; _animated_sprite.play("Walk"); return;
-		if (!jumping and direction < 0): _animated_sprite.flip_h = true; _animated_sprite.play("Walk"); return;
+	#moving animation stuff or end in idle
+	if ((_animated_sprite.is_playing() == true and _animated_sprite.get_animation() != 'Jump_End_Moving' and _animated_sprite.get_animation() != 'Jump_End_Standstill') 
+	or (_animated_sprite.is_playing() != true and (_animated_sprite.get_animation() == 'Jump_End_Moving' or _animated_sprite.get_animation() == 'Jump_End_Standstill'))):
+		if (!jumping and direction != 0): _animated_sprite.play("Walk"); return;
 		if (!jumping ): _animated_sprite.play("Idle");
 	
 	
