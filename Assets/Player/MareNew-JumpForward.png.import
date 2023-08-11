@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y7e8v0psr20y"
-path="res://.godot/imported/MareNew-AttackUP.png-eba636b5246d79270226070b3dafd925.ctex"
+uid="uid://cba8p48h43tdu"
+path="res://.godot/imported/MareNew-JumpForward.png-9678d7105dad675f961f16dce2fb581e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MareNew-AttackUP.png"
-dest_files=["res://.godot/imported/MareNew-AttackUP.png-eba636b5246d79270226070b3dafd925.ctex"]
+source_file="res://Assets/Player/MareNew-JumpForward.png"
+dest_files=["res://.godot/imported/MareNew-JumpForward.png-9678d7105dad675f961f16dce2fb581e.ctex"]
 
 [params]
 

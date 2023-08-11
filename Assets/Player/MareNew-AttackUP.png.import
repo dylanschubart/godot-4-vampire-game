@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp570wfmiu6ar"
-path="res://.godot/imported/MareNew-GrabCalice.png-f90a33ae6cb3b166257cfb1a4d1493f6.ctex"
+uid="uid://y7e8v0psr20y"
+path="res://.godot/imported/MareNew-AttackUP.png-87438076cf5e1e364809aa22b391c266.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MareNew-GrabCalice.png"
-dest_files=["res://.godot/imported/MareNew-GrabCalice.png-f90a33ae6cb3b166257cfb1a4d1493f6.ctex"]
+source_file="res://Assets/Player/MareNew-AttackUP.png"
+dest_files=["res://.godot/imported/MareNew-AttackUP.png-87438076cf5e1e364809aa22b391c266.ctex"]
 
 [params]
 

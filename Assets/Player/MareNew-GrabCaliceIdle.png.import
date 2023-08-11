@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7y4srvp1vmdf"
-path="res://.godot/imported/MareNew-GrabCaliceIdle.png-7726c365499fcefe04a27389d9d9a29d.ctex"
+path="res://.godot/imported/MareNew-GrabCaliceIdle.png-2733841e66e42826f9aff713426766eb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MareNew-GrabCaliceIdle.png"
-dest_files=["res://.godot/imported/MareNew-GrabCaliceIdle.png-7726c365499fcefe04a27389d9d9a29d.ctex"]
+source_file="res://Assets/Player/MareNew-GrabCaliceIdle.png"
+dest_files=["res://.godot/imported/MareNew-GrabCaliceIdle.png-2733841e66e42826f9aff713426766eb.ctex"]
 
 [params]
 

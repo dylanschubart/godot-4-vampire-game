@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brapejcyfqw7"
-path="res://.godot/imported/MareNew-Walk.png-b5655f5d70a02e7f8cae381e12873662.ctex"
+uid="uid://kk8q7c6vid0e"
+path="res://.godot/imported/MareNew-JumpUP.png-593b799674099864763e00c8b572f283.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MareNew-Walk.png"
-dest_files=["res://.godot/imported/MareNew-Walk.png-b5655f5d70a02e7f8cae381e12873662.ctex"]
+source_file="res://Assets/Player/MareNew-JumpUP.png"
+dest_files=["res://.godot/imported/MareNew-JumpUP.png-593b799674099864763e00c8b572f283.ctex"]
 
 [params]
 
