@@ -63,14 +63,16 @@ func jump():
 		doubleJump = true
 	#jumping animation stuff
 	if !jumping and velocity.y < 0:
-		if moving and is_on_floor(): 
+		if moving: 
 			_animation_player.play("Jump_Start_Moving")
 			jumping = true
 #			return
-		elif !moving and is_on_floor(): 
+		elif !moving: 
 			_animation_player.play("Jump_Start_Idle")
 			jumping = true
 #			return
+	if is_on_floor():
+		jumping = false
 
 	#end jumping animation
 #	if jumping and is_on_floor(): 
@@ -98,5 +100,6 @@ func _on_animation_player_animation_finished(anim_name):
 	elif anim_name == "Jump_Air" and !moving:
 		_animation_player.play("Jump_End_Idle")
 	#if the jump end/falling animation has been played reset to idle or walk
-	if anim_name == "Jump_End_Moving" or anim_name == "Jump_End_Idle":
-		jumping = false
+#	if anim_name == "Jump_End_Moving" or anim_name == "Jump_End_Idle":
+#			print_debug("jumping")
+#			jumping = false
