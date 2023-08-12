@@ -43,3 +43,10 @@ debug_color = Color(0.682353, 0.376471, 0.847059, 0.419608)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
 position = Vector2(39, -10)
 shape = SubResource("RectangleShape2D_nb8wi")
+
+[node name="Box2" type="StaticBody2D" parent="."]
+position = Vector2(20, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box2"]
+position = Vector2(39, -10)
+shape = SubResource("RectangleShape2D_nb8wi")
