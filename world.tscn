@@ -1,8 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbglhr6632n3v"]
+[gd_scene load_steps=3 format=3 uid="uid://bbglhr6632n3v"]
 
 [ext_resource type="PackedScene" uid="uid://ciuijy7p2vab4" path="res://Scenes/test.tscn" id="1_x6snh"]
-[ext_resource type="Texture2D" uid="uid://y7e8v0psr20y" path="res://Assets/MareNew-AttackUP.png" id="2_remh6"]
-[ext_resource type="Texture2D" uid="uid://bp570wfmiu6ar" path="res://Assets/MareNew-GrabCalice.png" id="3_4y7dc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80iwk"]
 size = Vector2(1255, 28)
@@ -15,17 +13,5 @@ size = Vector2(1255, 28)
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_80iwk")
 
-[node name="Node2D" parent="." instance=ExtResource("1_x6snh")]
+[node name="Mare" parent="." instance=ExtResource("1_x6snh")]
 position = Vector2(2, -80)
-
-[node name="MareNew-attackUp" type="Sprite2D" parent="."]
-position = Vector2(-150, -63)
-texture = ExtResource("2_remh6")
-hframes = 8
-frame = 7
-
-[node name="MareNew-grabCalice" type="Sprite2D" parent="."]
-position = Vector2(-172, 88)
-texture = ExtResource("3_4y7dc")
-hframes = 5
-frame = 1

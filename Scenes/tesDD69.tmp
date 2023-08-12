@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://ciuijy7p2vab4"]
+
+[ext_resource type="Texture2D" uid="uid://dmpraml65gcvg" path="res://Assets/MareNew-Idle.png" id="2_2g4eh"]
+[ext_resource type="Script" path="res://Scenes/CharacterBody2D.gd" id="2_upc3c"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb8a3"]
+radius = 48.0
+height = 126.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3vi6o"]
+atlas = ExtResource("2_2g4eh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p55tf"]
+atlas = ExtResource("2_2g4eh")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0emse"]
+atlas = ExtResource("2_2g4eh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv1jb"]
+atlas = ExtResource("2_2g4eh")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqqhg"]
+atlas = ExtResource("2_2g4eh")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4n0q"]
+atlas = ExtResource("2_2g4eh")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ta110"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3vi6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p55tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0emse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv1jb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqqhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4n0q")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("2_upc3c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_qb8a3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(2, -24)
+scale = Vector2(3.75, 3.75)
+sprite_frames = SubResource("SpriteFrames_ta110")
+animation = &"Idle"
+frame = 4
+frame_progress = 0.101209
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
