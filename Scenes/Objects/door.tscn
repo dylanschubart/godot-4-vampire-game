@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://b5mrbp81j7btc"]
+
+[ext_resource type="Texture2D" uid="uid://dpy1o2ja228h4" path="res://Assets/Environment/dungeon/Door.png" id="1_54onv"]
+[ext_resource type="Script" path="res://Scenes/Objects/door.gd" id="1_xo5nh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_873dw"]
+size = Vector2(52, 71)
+
+[sub_resource type="Animation" id="Animation_hvok1"]
+resource_name = "Open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_54onv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 2]
+}
+
+[sub_resource type="Animation" id="Animation_l2ykw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6eotu"]
+_data = {
+"Open": SubResource("Animation_hvok1"),
+"RESET": SubResource("Animation_l2ykw")
+}
+
+[node name="Door" type="Node2D"]
+
+[node name="InteractableZone" type="Area2D" parent="." groups=["Interactables"]]
+script = ExtResource("1_xo5nh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableZone"]
+position = Vector2(0, -35.5)
+shape = SubResource("RectangleShape2D_873dw")
+
+[node name="DoorTexture" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, -41.25)
+scale = Vector2(1, 0.993976)
+texture = ExtResource("1_54onv")
+hframes = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DoorTexture"]
+reset_on_save = false
+libraries = {
+"": SubResource("AnimationLibrary_6eotu")
+}
