@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmpraml65gcvg"
-path="res://.godot/imported/MareNew-Idle.png-779481ed2b5375e56923bca975f37f9a.ctex"
+path="res://.godot/imported/MareNew-Idle.png-bdb04ea9823e649653a7195010155906.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MareNew-Idle.png"
-dest_files=["res://.godot/imported/MareNew-Idle.png-779481ed2b5375e56923bca975f37f9a.ctex"]
+source_file="res://Assets/Player/MareNew-Idle.png"
+dest_files=["res://.godot/imported/MareNew-Idle.png-bdb04ea9823e649653a7195010155906.ctex"]
 
 [params]
 

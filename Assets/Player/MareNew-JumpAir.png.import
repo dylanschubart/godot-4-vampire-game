@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://2k2fsa65vce2"
-path="res://.godot/imported/MareNew-JumpAir.png-719bb437768f3f01709ebb2860330480.ctex"
+path="res://.godot/imported/MareNew-JumpAir.png-b23ba713933ef017a45e5b4e40eaf7fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/MareNew-JumpAir.png"
-dest_files=["res://.godot/imported/MareNew-JumpAir.png-719bb437768f3f01709ebb2860330480.ctex"]
+source_file="res://Assets/Player/MareNew-JumpAir.png"
+dest_files=["res://.godot/imported/MareNew-JumpAir.png-b23ba713933ef017a45e5b4e40eaf7fa.ctex"]
 
 [params]
 
