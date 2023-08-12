@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 250.0
 const JUMP_VELOCITY = 300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -14,8 +14,18 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var jumping = false
 var moving = false
 var doubleJump = false
+var levelChange = false;
 
 func _physics_process(delta):
+	#Check if we're interacting
+	if Input.is_action_just_pressed("Interact"):
+		for body in $Area2D.get_overlapping_areas():
+			if body.has_method("interact") and body.is_in_group('Interactables'):
+				var interaction = body.interact()
+				interaction_reactor(interaction)
+	#changing levels > play sit animation & nothing else
+	if levelChange: return
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -30,6 +40,7 @@ func _physics_process(delta):
 #	or ((_animation_player.current_animation == 'Jump_End_Moving' or _animation_player.current_animation == 'Jump_End_Idle'))
 #	#if we're not doing any animation & none is playing - go for a walk or idle
 #	or (_animation_player.current_animation == '' and !_animation_player.is_playing())):
+
 	if !jumping and moving:
 		_animation_player.play("Walk")
 	elif !jumping and !moving:
@@ -99,7 +110,18 @@ func _on_animation_player_animation_finished(anim_name):
 		_animation_player.play("Jump_End_Moving")
 	elif anim_name == "Jump_Air" and !moving:
 		_animation_player.play("Jump_End_Idle")
+		
+	if anim_name == "Sit":
+		_animation_player.play("Sit_Idle")
 	#if the jump end/falling animation has been played reset to idle or walk
 #	if anim_name == "Jump_End_Moving" or anim_name == "Jump_End_Idle":
 #			print_debug("jumping")
 #			jumping = false
+
+func interaction_reactor(interaction):
+	match interaction:
+		'levelSelect':
+			_animation_player.play("Sit")
+			levelChange = true
+		_:
+			print('Undefined interaction')
