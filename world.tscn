@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 [gd_scene load_steps=8 format=3 uid="uid://bbglhr6632n3v"]
+=======
+<<<<<<< HEAD
+[gd_scene load_steps=3 format=3 uid="uid://bbglhr6632n3v"]
+
+[ext_resource type="PackedScene" uid="uid://ciuijy7p2vab4" path="res://Scenes/test.tscn" id="1_x6snh"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://bbglhr6632n3v"]
+>>>>>>> b568d27ed1ca195d6a4f39df3886688b79d112ff
 
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="1_x6snh"]
 [ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/LevelSelect.tscn" id="2_kmguc"]
@@ -8,6 +17,7 @@ size = Vector2(20, 398)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wlh8t"]
 size = Vector2(20, 392)
+>>>>>>> 515ff1123458d1b9fc4071f0424d969bacaf315f
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_80iwk"]
 size = Vector2(1255, 28)
@@ -40,6 +50,8 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_80iwk")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
+<<<<<<< HEAD
+=======
 [node name="Ground2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
@@ -52,6 +64,7 @@ shape = SubResource("RectangleShape2D_l5whq")
 position = Vector2(77, -34)
 shape = SubResource("RectangleShape2D_1jvhr")
 
+>>>>>>> 515ff1123458d1b9fc4071f0424d969bacaf315f
 [node name="Mare" parent="." instance=ExtResource("1_x6snh")]
 position = Vector2(2, -80)
 
