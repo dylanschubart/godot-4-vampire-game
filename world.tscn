@@ -1,72 +1,45 @@
-<<<<<<< HEAD
-[gd_scene load_steps=8 format=3 uid="uid://bbglhr6632n3v"]
-=======
-<<<<<<< HEAD
-[gd_scene load_steps=3 format=3 uid="uid://bbglhr6632n3v"]
+[gd_scene load_steps=6 format=3 uid="uid://cotvapss3xvi"]
 
-[ext_resource type="PackedScene" uid="uid://ciuijy7p2vab4" path="res://Scenes/test.tscn" id="1_x6snh"]
-=======
-[gd_scene load_steps=7 format=3 uid="uid://bbglhr6632n3v"]
->>>>>>> b568d27ed1ca195d6a4f39df3886688b79d112ff
+[ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="1_oavew"]
+[ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/LevelSelect.tscn" id="2_uehoe"]
 
-[ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="1_x6snh"]
-[ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/LevelSelect.tscn" id="2_kmguc"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ys3on"]
+size = Vector2(848, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qehi4"]
-size = Vector2(20, 398)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gseom"]
+size = Vector2(20, 234)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlh8t"]
-size = Vector2(20, 392)
->>>>>>> 515ff1123458d1b9fc4071f0424d969bacaf315f
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_80iwk"]
-size = Vector2(1255, 28)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_l5whq"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jvhr"]
-size = Vector2(20, 40)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nb8wi"]
 
 [node name="World" type="Node2D"]
 
-[node name="WallLeft" type="StaticBody2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("1_oavew")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
-position = Vector2(-618, -185)
-shape = SubResource("RectangleShape2D_qehi4")
-debug_color = Color(0.545098, 0.403922, 1, 0.419608)
-
-[node name="Wallright" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Wallright"]
-position = Vector2(617, -182)
-shape = SubResource("RectangleShape2D_wlh8t")
-debug_color = Color(0.545098, 0.403922, 1, 0.419608)
+[node name="LevelSelect" parent="." instance=ExtResource("2_uehoe")]
+position = Vector2(238, 0)
 
 [node name="Ground" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
-position = Vector2(-0.5, 0)
-shape = SubResource("RectangleShape2D_80iwk")
-debug_color = Color(0, 0.6, 0.701961, 0.419608)
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_ys3on")
 
-<<<<<<< HEAD
-=======
-[node name="Ground2" type="StaticBody2D" parent="."]
+[node name="WallRight" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2"]
-position = Vector2(57, -24)
-shape = SubResource("RectangleShape2D_l5whq")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallRight"]
+position = Vector2(434, -97)
+shape = SubResource("RectangleShape2D_gseom")
+debug_color = Color(0.682353, 0.376471, 0.847059, 0.419608)
 
-[node name="Ground3" type="StaticBody2D" parent="."]
+[node name="WallLeft" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3"]
-position = Vector2(77, -34)
-shape = SubResource("RectangleShape2D_1jvhr")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft"]
+position = Vector2(-434, -97)
+shape = SubResource("RectangleShape2D_gseom")
+debug_color = Color(0.682353, 0.376471, 0.847059, 0.419608)
 
->>>>>>> 515ff1123458d1b9fc4071f0424d969bacaf315f
-[node name="Mare" parent="." instance=ExtResource("1_x6snh")]
-position = Vector2(2, -80)
+[node name="Box" type="StaticBody2D" parent="."]
 
-[node name="LevelSelect" parent="." instance=ExtResource("2_kmguc")]
-position = Vector2(320, -14)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box"]
+position = Vector2(39, -10)
+shape = SubResource("RectangleShape2D_nb8wi")
