@@ -74,6 +74,7 @@ script = ExtResource("1_xo5nh")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableZone"]
 position = Vector2(0, -35.5)
 shape = SubResource("RectangleShape2D_873dw")
+disabled = true
 
 [node name="DoorTexture" type="Sprite2D" parent="."]
 z_index = -1
@@ -87,3 +88,5 @@ reset_on_save = false
 libraries = {
 "": SubResource("AnimationLibrary_6eotu")
 }
+
+[connection signal="animation_finished" from="DoorTexture/AnimationPlayer" to="InteractableZone" method="_on_animation_player_animation_finished"]

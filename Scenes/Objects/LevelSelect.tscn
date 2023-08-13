@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c10i6xtnpw0g2"]
 
-[ext_resource type="Script" path="res://Scenes/InteractionZone.gd" id="1_rrjom"]
+[ext_resource type="Script" path="res://Scenes/Objects/InteractionZone.gd" id="1_rrjom"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k2rp5"]
 size = Vector2(72, 15)

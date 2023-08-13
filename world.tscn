@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cotvapss3xvi"]
 
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="1_oavew"]
-[ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/LevelSelect.tscn" id="2_uehoe"]
+[ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/Objects/LevelSelect.tscn" id="2_uehoe"]
 [ext_resource type="PackedScene" uid="uid://b5mrbp81j7btc" path="res://Scenes/Objects/door.tscn" id="3_pwwuf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys3on"]
