@@ -1,23 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://c10i6xtnpw0g2"]
+[gd_scene load_steps=3 format=3 uid="uid://c10i6xtnpw0g2"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/InteractionZone.gd" id="1_rrjom"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k2rp5"]
-size = Vector2(72, 15)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8cn3"]
-size = Vector2(28, 4)
+size = Vector2(15, 4)
 
 [node name="LevelSelect" type="StaticBody2D"]
-
-[node name="Bed" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_k2rp5")
-debug_color = Color(0.823529, 0.337255, 0.552941, 0.419608)
 
 [node name="InteractionZone" type="Area2D" parent="." groups=["Interactables"]]
 script = ExtResource("1_rrjom")
 
 [node name="InteractionShape" type="CollisionShape2D" parent="InteractionZone"]
-position = Vector2(17, -18)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_w8cn3")

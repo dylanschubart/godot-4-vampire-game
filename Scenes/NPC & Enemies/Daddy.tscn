@@ -6,14 +6,13 @@
 size = Vector2(28, 57)
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(10, -20)
 
 [node name="Daddy" type="Sprite2D" parent="."]
-position = Vector2(-4, -10)
+position = Vector2(5, -30)
 texture = ExtResource("1_bexu1")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-10, -8.5)
+position = Vector2(0, -29)
 shape = SubResource("RectangleShape2D_bhtup")

@@ -17,14 +17,19 @@ var doubleJump = false
 var sceneChange = false;
 
 func _physics_process(delta):
+	
+	#changing levels > play sit animation & nothing else
+	if sceneChange: 
+		
+		return
+	
 	#Check if we're interacting
 	if Input.is_action_just_pressed("Interact"):
 		for area in $Area2D.get_overlapping_areas():
 			if area.has_method("interact") and area.is_in_group('Interactables'):
 				var interaction = area.interact()
 				interaction_reactor(interaction)
-	#changing levels > play sit animation & nothing else
-	if sceneChange: return
+				return
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -119,12 +124,16 @@ func _on_animation_player_animation_finished(anim_name):
 #			jumping = false
 
 func interaction_reactor(interaction):
-	match interaction:
+	var interactionType = interaction.get_slice(' - ', 0)
+	var interactionIndex = interaction.get_slice(' - ', 1)
+	
+	match interactionType:
 		'levelSelect':
 			_animation_player.play("Sit")
 			sceneChange = true
 		'hubSelect':
 			_animation_player.play("Walk")
+			SceneManager.changeSceneWithTransition(SceneManager.room[int(interactionIndex) - 1])
 			sceneChange = true
 		_:
 			print('Undefined interaction')

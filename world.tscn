@@ -19,7 +19,7 @@ size = Vector2(20, 234)
 
 [sub_resource type="Curve2D" id="Curve2D_00nt3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -10, -6, 0, 0, 0, 0, 178, -6, 0, 0, 0, 0, 215, 27, 0, 0, 0, 0, 459, 25)
+"points": PackedVector2Array(0, 0, 0, 0, -10, -6, 0, 0, 0, 0, 178, -6, 0, 0, 0, 0, 214, 20, 0, 0, 0, 0, 459, 20)
 }
 point_count = 4
 
@@ -31,7 +31,7 @@ position = Vector2(-27, -90)
 texture = ExtResource("1_o0e5a")
 
 [node name="HubForeground" type="Sprite2D" parent="HubBackground"]
-z_index = 3
+z_index = 4
 texture = ExtResource("2_btgch")
 
 [node name="DoorRightForeground" type="Sprite2D" parent="HubBackground"]
@@ -77,16 +77,23 @@ debug_color = Color(0.682353, 0.376471, 0.847059, 0.419608)
 position = Vector2(164, -27)
 
 [node name="Player" parent="." instance=ExtResource("1_oavew")]
+z_index = 1
 position = Vector2(-328, -52)
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Daddy\'s path" type="Path2D" parent="."]
 position = Vector2(-346, -72)
 curve = SubResource("Curve2D_00nt3")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+[node name="Daddy\'s follow path" type="PathFollow2D" parent="Daddy\'s path"]
 position = Vector2(-10, -6)
 rotates = false
+loop = false
 
-[node name="Daddy" parent="Path2D/PathFollow2D" instance=ExtResource("6_cke6f")]
-position = Vector2(10, 6)
+[node name="Daddy" parent="Daddy\'s path/Daddy\'s follow path" instance=ExtResource("6_cke6f")]
+position = Vector2(-1, 31)
 script = ExtResource("7_wj5h4")
+_speed = 300
+
+[connection signal="reached_path_end" from="Daddy's path/Daddy's follow path/Daddy" to="Door/InteractableZone" method="_on_daddy_reached_path_end"]
+
+[editable path="Door"]
