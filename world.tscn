@@ -94,6 +94,8 @@ position = Vector2(-1, 31)
 script = ExtResource("7_wj5h4")
 _speed = 300
 
+[connection signal="tree_entered" from="." to="Player" method="_on_world_tree_entered"]
+[connection signal="tree_exited" from="." to="Player" method="_on_world_tree_exited"]
 [connection signal="reached_path_end" from="Daddy's path/Daddy's follow path/Daddy" to="Door/InteractableZone" method="_on_daddy_reached_path_end"]
 
 [editable path="Door"]

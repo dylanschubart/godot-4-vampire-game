@@ -11,10 +11,15 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _animation_player = $Sprite2D/AnimationPlayer
 @onready var _sprite = $Sprite2D
 
+
 var jumping = false
 var moving = false
 var doubleJump = false
 var sceneChange = false;
+
+func _ready():
+	pass
+	
 
 func _physics_process(delta):
 	
@@ -133,7 +138,17 @@ func interaction_reactor(interaction):
 			sceneChange = true
 		'hubSelect':
 			_animation_player.play("Walk")
-			SceneManager.changeSceneWithTransition(SceneManager.room[int(interactionIndex) - 1])
+			SceneManager.changeSceneWithTransition(SceneManager.scenes[int(interactionIndex)])
 			sceneChange = true
 		_:
 			print('Undefined interaction')
+
+
+func _on_world_tree_exited():
+	var doorList = [$"../Door"]
+	ResourceManager.saveHub($".", $"../Daddy's path/Daddy's follow path", doorList)
+
+
+func _on_world_tree_entered():
+	var doorList = [$"../Door"]
+	ResourceManager.loadHub($".", $"../Daddy's path/Daddy's follow path", doorList)

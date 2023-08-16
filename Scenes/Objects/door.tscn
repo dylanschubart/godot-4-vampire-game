@@ -82,6 +82,7 @@ position = Vector2(0, -41.25)
 scale = Vector2(1, 0.993976)
 texture = ExtResource("1_54onv")
 hframes = 3
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DoorTexture"]
 reset_on_save = false
