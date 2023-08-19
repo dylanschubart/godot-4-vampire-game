@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cotvapss3xvi"]
+[gd_scene load_steps=15 format=3 uid="uid://cotvapss3xvi"]
 
 [ext_resource type="Texture2D" uid="uid://oho6uwwsw2a4" path="res://Assets/Environment/dungeon/Hub_Background.png" id="1_o0e5a"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="1_oavew"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b5mrbp81j7btc" path="res://Scenes/Objects/door.tscn" id="3_pwwuf"]
 [ext_resource type="PackedScene" uid="uid://bo7rlfhfey3gv" path="res://Scenes/NPC & Enemies/Daddy.tscn" id="6_cke6f"]
 [ext_resource type="Script" path="res://Scenes/NPC & Enemies/Daddy.gd" id="7_wj5h4"]
+[ext_resource type="Texture2D" uid="uid://cw3x3xn1gqvsn" path="res://Assets/Environment/dungeon/Pillar.png" id="8_kse4c"]
+[ext_resource type="Texture2D" uid="uid://d0j8m2o5yclkw" path="res://Assets/Environment/dungeon/Door_side_backgroundarch.png" id="9_jffop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys3on"]
 size = Vector2(216, 20)
@@ -22,6 +24,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -10, -6, 0, 0, 0, 0, 178, -6, 0, 0, 0, 0, 214, 20, 0, 0, 0, 0, 459, 20)
 }
 point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_beipo"]
+size = Vector2(21, 91)
 
 [node name="World" type="Node2D"]
 
@@ -80,6 +85,13 @@ position = Vector2(164, -27)
 z_index = 1
 position = Vector2(-328, -52)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(28, -4)
+limit_left = -408
+limit_top = -180
+limit_right = 354
+limit_bottom = 0
+
 [node name="Daddy\'s path" type="Path2D" parent="."]
 position = Vector2(-346, -72)
 curve = SubResource("Curve2D_00nt3")
@@ -93,6 +105,21 @@ loop = false
 position = Vector2(-1, 31)
 script = ExtResource("7_wj5h4")
 _speed = 300
+
+[node name="WallLeft2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallLeft2"]
+position = Vector2(-266.5, -169.5)
+shape = SubResource("RectangleShape2D_beipo")
+
+[node name="Sprite2D" type="Sprite2D" parent="WallLeft2"]
+z_index = -2
+position = Vector2(-270, -143)
+texture = ExtResource("8_kse4c")
+
+[node name="DoorSideBackgroundarch" type="Sprite2D" parent="."]
+position = Vector2(-269, -90)
+texture = ExtResource("9_jffop")
 
 [connection signal="tree_entered" from="." to="Player" method="_on_world_tree_entered"]
 [connection signal="tree_exited" from="." to="Player" method="_on_world_tree_exited"]
