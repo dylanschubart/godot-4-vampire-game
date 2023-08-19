@@ -45,6 +45,12 @@ func loadHub(player, daddyPath, door):
 	print('Opened doors: ' + str(hubOpenedDoors))
 		
 
+func saveRoom(_index):
+	pass
+	
+func loadRoom(_index):
+	pass
+
 func saveLevel(_index):
 	pass
 

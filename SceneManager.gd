@@ -1,12 +1,19 @@
 extends CanvasLayer
 
 var currentScene = null
+var sceneChange = false
+var sceneChangeLimit = 180
+var sceneChangeDelta = 0
+var nextScene
 
 const scenes = [("res://world.tscn")
 ,("res://Scenes/Rooms/room_1.tscn")]
+var levels = [("res://world.tscn")
+,"res://Scenes/Levels/level_1.tscn"]
 
-func changeSceneWithTransition(scenePath):
-	goto_scene(scenePath)
+func changeSceneWithTransition(scenePath):	
+	sceneChange = true
+	nextScene = scenePath
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +23,13 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	if sceneChange:
+		sceneChangeDelta += 1
+	
+	if sceneChangeDelta >= sceneChangeLimit:
+		goto_scene(nextScene)
+		sceneChange = false
+		sceneChangeDelta = 0
 	
 func goto_scene(path):
 # This function will usually be called from a signal callback,
@@ -45,3 +58,6 @@ func _deferred_goto_scene(path):
 
 	# Optionally, to make it compatible with the SceneTree.change_scene_to_file() API.
 	get_tree().current_scene = currentScene
+
+func saveCurrentSceneToLevels():
+	levels[0] = get_tree().current_scene.scene_file_path

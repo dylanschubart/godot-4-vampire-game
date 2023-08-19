@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://roc5s3lm45t8"]
+[gd_scene load_steps=7 format=3 uid="uid://roc5s3lm45t8"]
 
 [ext_resource type="Texture2D" uid="uid://hnpwqy6s3dik" path="res://Assets/Environment/Level1/TilesetLv1_8x8.png" id="1_aijhc"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="2_0q7id"]
+[ext_resource type="PackedScene" uid="uid://d3ptj1csoxvd1" path="res://Scenes/Hazard/Spikes.tscn" id="3_qmn5n"]
+[ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/Objects/LevelSelect.tscn" id="4_xeokl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buy6l"]
 resource_name = "Terrain"
@@ -378,3 +380,19 @@ layer_0/tile_data = PackedInt32Array(-1310675, 262144, 0, -1376211, 1376256, 0, 
 
 [node name="Player" parent="." instance=ExtResource("2_0q7id")]
 position = Vector2(-404, -10)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="Spikes" parent="." instance=ExtResource("3_qmn5n")]
+position = Vector2(-89, 62)
+
+[node name="LevelSelect" parent="." instance=ExtResource("4_xeokl")]
+position = Vector2(-130, 46)
+
+[node name="InteractionZone" parent="LevelSelect" index="0"]
+levelNumber = 0
+
+[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
+
+[editable path="Player"]
+[editable path="LevelSelect"]

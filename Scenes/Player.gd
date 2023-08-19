@@ -11,18 +11,20 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _animation_player = $Sprite2D/AnimationPlayer
 @onready var _sprite = $Sprite2D
 
+#Choose health
+@export var health = 3
 
 var jumping = false
 var moving = false
 var doubleJump = false
-var sceneChange = false;
+var sceneChange = false
+
 
 func _ready():
 	pass
 	
 
 func _physics_process(delta):
-	
 	#changing levels > play sit animation & nothing else
 	if sceneChange: 
 		
@@ -135,6 +137,8 @@ func interaction_reactor(interaction):
 	match interactionType:
 		'levelSelect':
 			_animation_player.play("Sit")
+			SceneManager.changeSceneWithTransition(SceneManager.levels[int(interactionIndex)])
+			SceneManager.saveCurrentSceneToLevels()
 			sceneChange = true
 		'hubSelect':
 			_animation_player.play("Walk")
@@ -152,3 +156,9 @@ func _on_world_tree_exited():
 func _on_world_tree_entered():
 	var doorList = [$"../Door"]
 	ResourceManager.loadHub($".", $"../Daddy's path/Daddy's follow path", doorList)
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group('Hazards'):
+		health -= 1
+		
+	print(health)
