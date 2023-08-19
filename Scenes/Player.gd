@@ -18,6 +18,7 @@ var jumping = false
 var moving = false
 var doubleJump = false
 var sceneChange = false
+var attacking = false
 
 
 func _ready():
@@ -44,6 +45,7 @@ func _physics_process(delta):
 	
 	move()
 	jump()
+	attack()
 	
 	#moving animation stuff or end in idle
 	#if moving - and not jump end - keep checking for walk and idle
@@ -53,9 +55,9 @@ func _physics_process(delta):
 #	#if we're not doing any animation & none is playing - go for a walk or idle
 #	or (_animation_player.current_animation == '' and !_animation_player.is_playing())):
 
-	if !jumping and moving:
+	if !jumping and !attacking and moving:
 		_animation_player.play("Walk")
-	elif !jumping and !moving:
+	elif !jumping and !attacking and !moving:
 		_animation_player.play("Idle")
 
 func move():
@@ -83,15 +85,18 @@ func jump():
 	elif Input.is_action_just_pressed("Jump") and !is_on_floor() and doubleJump == false:
 		velocity.y = -JUMP_VELOCITY;
 		_animation_player.play("Jump_Air")
+		attacking = false
 		doubleJump = true
 	#jumping animation stuff
 	if !jumping and velocity.y < 0:
 		if moving: 
 			_animation_player.play("Jump_Start_Moving")
+			attacking = false
 			jumping = true
 #			return
 		elif !moving: 
 			_animation_player.play("Jump_Start_Idle")
+			attacking = false
 			jumping = true
 #			return
 	if is_on_floor():
@@ -109,6 +114,16 @@ func jump():
 #			print_debug("Jump End Idle is playing")
 #			return
 
+func attack():
+	if !attacking:	
+		if Input.is_action_just_pressed("Attack"):
+			if Input.is_action_pressed("Aim_Up"):
+				_animation_player.play("Attack_Up")
+			else:
+				_animation_player.play("Attack_Right")
+			attacking = true;
+		
+
 #AnimationPlayer Signal, if an animation finishes it sends a signal to this linked connection and we can check if specific animations have ended
 func _on_animation_player_animation_finished(anim_name):
 #check if specific animations have ended
@@ -125,6 +140,9 @@ func _on_animation_player_animation_finished(anim_name):
 		
 	if anim_name == "Sit":
 		_animation_player.play("Sit_Idle")
+		
+	if anim_name == "Attack_Up" or anim_name == "Attack_Right":
+		attacking = false
 	#if the jump end/falling animation has been played reset to idle or walk
 #	if anim_name == "Jump_End_Moving" or anim_name == "Jump_End_Idle":
 #			print_debug("jumping")
