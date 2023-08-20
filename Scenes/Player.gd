@@ -11,13 +11,23 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _animation_player = $Sprite2D/AnimationPlayer
 @onready var _sprite = $Sprite2D
 
-#Choose health
+#Get attack right to flip it & attackcooldown to delay attacks
+@onready var _attackRight = $AttackRight
+@onready var _attackCooldown = $AttackCooldown
+
+#HUD element & all info
 @export var health = 3
+@onready var _invincibilityTimer = $InvincibilityTimer
+var hit = false
+var flickerTime = 1.5
+#Signal for health change
+signal health_changed(value)
 
 var jumping = false
 var moving = false
 var doubleJump = false
 var sceneChange = false
+var readyForAttack = true
 var attacking = false
 
 
@@ -28,12 +38,21 @@ func _ready():
 func _physics_process(delta):
 	#changing levels > play sit animation & nothing else
 	if sceneChange: 
-		
 		return
-	
+		
+	#if hit -> flicker sprite
+	if hit:
+		print(_invincibilityTimer.time_left)
+		if _invincibilityTimer.time_left < flickerTime - 0.2:
+			_sprite.visible = !_sprite.visible
+			flickerTime -= 0.2
+	else:
+		_sprite.visible = true
+		flickerTime = 1.5
+		
 	#Check if we're interacting
 	if Input.is_action_just_pressed("Interact"):
-		for area in $Area2D.get_overlapping_areas():
+		for area in $InteractionArea.get_overlapping_areas():
 			if area.has_method("interact") and area.is_in_group('Interactables'):
 				var interaction = area.interact()
 				interaction_reactor(interaction)
@@ -74,7 +93,8 @@ func move():
 	move_and_slide()
 	#always flip on direction changes
 	if (direction != 0): 
-		_sprite.flip_h = (direction < 0)
+		_sprite.flip_h = (direction < 0);
+		_attackRight.scale.x = direction
 
 	
 func jump():
@@ -115,13 +135,15 @@ func jump():
 #			return
 
 func attack():
-	if !attacking:	
+	if !attacking and readyForAttack:	
 		if Input.is_action_just_pressed("Attack"):
 			if Input.is_action_pressed("Aim_Up"):
 				_animation_player.play("Attack_Up")
 			else:
 				_animation_player.play("Attack_Right")
-			attacking = true;
+			attacking = true
+			readyForAttack = false
+			_attackCooldown.start()
 		
 
 #AnimationPlayer Signal, if an animation finishes it sends a signal to this linked connection and we can check if specific animations have ended
@@ -175,8 +197,18 @@ func _on_world_tree_entered():
 	var doorList = [$"../Door"]
 	ResourceManager.loadHub($".", $"../Daddy's path/Daddy's follow path", doorList)
 
-func _on_area_2d_area_entered(area):
-	if area.is_in_group('Hazards'):
-		health -= 1
-		
-	print(health)
+func _on_interaction_area_area_entered(area):
+	if !hit:
+		if area.is_in_group('Hazards') or area.is_in_group('Enemy_Damage'):
+			health -= 1
+			emit_signal("health_changed", health)
+			_invincibilityTimer.start()
+			hit = true
+
+
+func _on_attack_cooldown_timeout():
+	readyForAttack = true
+
+
+func _on_invincibility_timer_timeout():
+	hit = false

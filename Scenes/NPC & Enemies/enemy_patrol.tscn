@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://8qrh1m73njfy"]
+
+[ext_resource type="Texture2D" uid="uid://gkgh44fqoqwh" path="res://Assets/NPC/Enemies/Placeholder_Enemy.png" id="1_qwiat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whyub"]
+size = Vector2(28, 29)
+
+[node name="Enemy_Patrol" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_qwiat")
+
+[node name="Area2D" type="Area2D" parent="." groups=["Enemy_Damage"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -14.5)
+shape = SubResource("RectangleShape2D_whyub")
+debug_color = Color(0.694118, 0.211765, 0.180392, 0.419608)
