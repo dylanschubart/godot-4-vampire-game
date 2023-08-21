@@ -123,6 +123,7 @@ debug_color = Color(0.682353, 0.376471, 0.847059, 0.419608)
 [node name="Player" parent="." instance=ExtResource("4_wlvn8")]
 z_index = 2
 position = Vector2(-89, -9)
+health = 999
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = -125

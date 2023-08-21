@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dmno3a63ki8kl"]
+[gd_scene load_steps=33 format=3 uid="uid://dmno3a63ki8kl"]
 
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_jus1k"]
 [ext_resource type="Texture2D" uid="uid://y7e8v0psr20y" path="res://Assets/Player/MareNew-AttackUP.png" id="2_g4qmr"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://2k2fsa65vce2" path="res://Assets/Player/MareNew-JumpAir.png" id="6_schcu"]
 [ext_resource type="Texture2D" uid="uid://b0gs5hf8m2cm0" path="res://Assets/Player/MareNew-Sit.png" id="7_rtyot"]
 [ext_resource type="Texture2D" uid="uid://cpjsjbherv6e7" path="res://Assets/Player/MareNew-SitIdle.png" id="8_8blhi"]
-[ext_resource type="PackedScene" uid="uid://h7umrqwm0d3o" path="res://Scenes/player_health_ui.tscn" id="11_8ktjp"]
+[ext_resource type="Script" path="res://Scenes/HUD.gd" id="11_0gqmv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb8a3"]
 radius = 5.0
@@ -498,6 +498,18 @@ size = Vector2(14, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8qft"]
 size = Vector2(20, 19)
 
+[sub_resource type="Gradient" id="Gradient_oehjp"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_e86dt"]
+gradient = SubResource("Gradient_oehjp")
+
+[sub_resource type="Gradient" id="Gradient_d0otd"]
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kl66v"]
+gradient = SubResource("Gradient_d0otd")
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_jus1k")
 
@@ -539,15 +551,16 @@ shape = SubResource("RectangleShape2D_f8qft")
 [node name="AttackCooldown" type="Timer" parent="."]
 one_shot = true
 
-[node name="PlayerHealthUI" parent="." instance=ExtResource("11_8ktjp")]
-offset = Vector2(5, 5)
-transform = Transform2D(1, 0, 0, 1, 5, 5)
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("11_0gqmv")
 
-[node name="InvincibilityTimer" type="Timer" parent="."]
-wait_time = 1.5
-one_shot = true
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 3.0
+texture_under = SubResource("GradientTexture1D_e86dt")
+texture_over = SubResource("GradientTexture1D_kl66v")
 
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]
-[connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]

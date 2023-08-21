@@ -81,9 +81,13 @@ debug_color = Color(0.682353, 0.376471, 0.847059, 0.419608)
 [node name="Door" parent="." instance=ExtResource("3_pwwuf")]
 position = Vector2(164, -27)
 
+[node name="DoorTexture" parent="Door" index="1"]
+frame = 0
+
 [node name="Player" parent="." instance=ExtResource("1_oavew")]
 z_index = 1
 position = Vector2(-328, -52)
+health = 999
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(28, -4)

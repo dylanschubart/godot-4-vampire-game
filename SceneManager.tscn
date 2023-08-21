@@ -4,3 +4,9 @@
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_15ug7")
+
+[node name="SceneChangeTimer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[connection signal="timeout" from="SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]
