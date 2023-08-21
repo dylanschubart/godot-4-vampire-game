@@ -13,6 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #Get attack right to flip it & attackcooldown to delay attacks
 @onready var _attackRight = $AttackRight
+@onready var _attackUp = $AttackUp
 @onready var _attackCooldown = $AttackCooldown
 
 #HUD element & all info
@@ -137,10 +138,23 @@ func jump():
 func attack():
 	if !attacking and readyForAttack:	
 		if Input.is_action_just_pressed("Attack"):
+			
 			if Input.is_action_pressed("Aim_Up"):
+				#animation
 				_animation_player.play("Attack_Up")
+				#hit enemy
+				for area in _attackUp.get_overlapping_areas():
+					if area.parent().has_method("getHit") and area.is_in_group('Enemy_Damage'):
+						area.owner.getHit()
 			else:
+				#animation
 				_animation_player.play("Attack_Right")
+				#hit enemy
+				for area in _attackRight.get_overlapping_areas():
+					if area.owner.has_method("getHit") and area.is_in_group('Enemy_Damage'):
+						area.owner.getHit()
+				
+			#set bools & start cooldown	
 			attacking = true
 			readyForAttack = false
 			_attackCooldown.start()

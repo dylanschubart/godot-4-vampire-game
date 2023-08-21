@@ -1,19 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://8qrh1m73njfy"]
+[gd_scene load_steps=5 format=3 uid="uid://8qrh1m73njfy"]
 
 [ext_resource type="Texture2D" uid="uid://gkgh44fqoqwh" path="res://Assets/NPC/Enemies/Placeholder_Enemy.png" id="1_qwiat"]
+[ext_resource type="Script" path="res://Scenes/NPC & Enemies/enemy_patrol.gd" id="1_w7fem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whyub"]
 size = Vector2(28, 29)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_riwal"]
+size = Vector2(27.6, 6)
+
 [node name="Enemy_Patrol" type="Node2D"]
+script = ExtResource("1_w7fem")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
 texture = ExtResource("1_qwiat")
 
-[node name="Area2D" type="Area2D" parent="." groups=["Enemy_Damage"]]
+[node name="AreaHit" type="Area2D" parent="." groups=["Enemy_Damage"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHit"]
 position = Vector2(1, -14.5)
 shape = SubResource("RectangleShape2D_whyub")
 debug_color = Color(0.694118, 0.211765, 0.180392, 0.419608)
+
+[node name="AreaDetection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetection"]
+position = Vector2(5.96046e-08, -15)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_riwal")
