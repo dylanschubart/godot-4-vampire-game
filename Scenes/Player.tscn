@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://2k2fsa65vce2" path="res://Assets/Player/MareNew-JumpAir.png" id="6_schcu"]
 [ext_resource type="Texture2D" uid="uid://b0gs5hf8m2cm0" path="res://Assets/Player/MareNew-Sit.png" id="7_rtyot"]
 [ext_resource type="Texture2D" uid="uid://cpjsjbherv6e7" path="res://Assets/Player/MareNew-SitIdle.png" id="8_8blhi"]
-[ext_resource type="PackedScene" uid="uid://h7umrqwm0d3o" path="res://Scenes/player_health_ui.tscn" id="11_8ktjp"]
+[ext_resource type="PackedScene" path="res://Scenes/player_health_ui.tscn" id="11_8ktjp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb8a3"]
 radius = 5.0

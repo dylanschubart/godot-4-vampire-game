@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://roc5s3lm45t8"]
+[gd_scene load_steps=11 format=3 uid="uid://roc5s3lm45t8"]
 
 [ext_resource type="Texture2D" uid="uid://hnpwqy6s3dik" path="res://Assets/Environment/Level1/TilesetLv1_8x8.png" id="1_aijhc"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="2_0q7id"]
 [ext_resource type="Texture2D" uid="uid://buhkdyqxt2hoi" path="res://Assets/Environment/Level1/ForegroundTileset.png" id="2_jv1ts"]
+[ext_resource type="PackedScene" path="res://Scenes/NPC & Enemies/enemy_patrol.tscn" id="3_7wg0e"]
 [ext_resource type="PackedScene" uid="uid://d3ptj1csoxvd1" path="res://Scenes/Hazard/Spikes.tscn" id="3_qmn5n"]
 [ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/Objects/LevelSelect.tscn" id="4_xeokl"]
 [ext_resource type="Texture2D" uid="uid://cv1j05sxtsul2" path="res://Assets/Environment/Paralax/ParallaxBehind.png" id="5_p4ftj"]
@@ -579,6 +580,8 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 9
 layer_1/tile_data = PackedInt32Array(-720944, 983041, 0, 524248, 65537, 0, 524262, 720897, 0, 524256, 720897, 0, 589795, 458753, 0, 524260, 458753, 0, 589806, 327681, 0, 196634, 589825, 0, -589786, 655361, 0, -589792, 917505, 0, -589803, 262145, 0, -589808, 131073, 0, -589815, 655361, 0, -589819, 65537, 0, 196636, 393217, 0, 196637, 851969, 0, 196638, 983041, 0, 196639, 196609, 0, 196640, 983041, 0, 196641, 720897, 0, 262177, 655361, 0, 262178, 524289, 0, 196649, 196609, 0, 196650, 851969, 0, 196651, 589825, 0, 196652, 65537, 0, 196653, 983041, 0, 196654, 131073, 0, 196655, 458753, 0, 196656, 589825, 0, 196657, 524289, 0, 196658, 524289, 0, 196659, 524289, 0, 196660, 262145, 0, 196661, 393217, 0, 196662, 655361, 0, 196663, 655361, 0, 196664, 196609, 0, 196669, 983041, 0, 196668, 262145, 0, 196667, 393217, 0, 196666, 524289, 0, 262202, 393217, 0, 262201, 327681, 0, 262200, 655361, 0, 262199, 851969, 0, 262198, 589825, 0, 196670, 65537, 0, 196671, 393217, 0, 196672, 65537, 0, 196673, 524289, 0, 196674, 196609, 0, 196675, 589825, 0, 196665, 983041, 0, 131110, 327681, 0, 131109, 917505, 0, 131108, 983041, 0, 65571, 262145, 0, 65570, 851969, 0, 65569, 983041, 0, 196647, 131073, 0, 196646, 917505, 0, 196645, 851969, 0, 196644, 458753, 0, 196643, 983041, 0, 196642, 327681, 0, 262172, 983041, 0, 262171, 589825, 0, 262170, 262145, 0, 262169, 327681, 0, 262168, 458753, 0, 262167, 983041, 0, 262166, 65537, 0, 262165, 786433, 0, 196633, 589825, 0, 196635, 983041, 0, 196632, 655361, 0, 196631, 917505, 0, 196630, 589825, 0, 196629, 917505, 0, 196628, 524289, 0, 196627, 589825, 0, 196626, 589825, 0, 196625, 786433, 0, 196624, 327681, 0, 65557, 983041, 0, 65558, 655361, 0, 589772, 131073, 1, 524236, 131073, 0, 589773, 196609, 1, 524240, 524289, 0, 589776, 524289, 1, 524241, 589825, 0, 589777, 589825, 1, 524253, 917505, 0, 589789, 917505, 1, 524254, 983041, 0, 589790, 983041, 1, -720939, 1572865, 0, -655403, 1572865, 1, -720938, 1638401, 0, -655402, 1638401, 1, -720949, 1572865, 0, -655413, 1572865, 1, -720948, 1638401, 0, -655412, 1638401, 1, -720943, 1835009, 0, -720942, 1900545, 0, -720923, 1835009, 0, -720922, 1900545, 0, -720916, 1703937, 0, -720915, 1769473, 0, -720928, 1703937, 0, -720927, 1769473, 0, 524249, 1441793, 0, 589785, 1441793, 1, 524250, 1507329, 0, 589786, 1507329, 1, 524266, 1048577, 0, 589802, 1048577, 1, 524267, 1114113, 0, 589803, 1114113, 1, 524261, 655361, 0, 589797, 655361, 1, 589798, 720897, 1, 524244, 393217, 0, 589780, 393217, 1, 524245, 458753, 0, 589781, 458753, 1)
 
+[node name="Enemy_Patrol" parent="." instance=ExtResource("3_7wg0e")]
+
 [node name="Player" parent="." instance=ExtResource("2_0q7id")]
 position = Vector2(-404, -10)
 
@@ -601,21 +604,6 @@ motion_mirroring = Vector2(320, 0)
 [node name="Behind2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("5_p4ftj")
 centered = false
-
-<<<<<<< HEAD
-[connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
-=======
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-600, -321)
-motion_mirroring = Vector2(320, 0)
-
-[node name="ParallaxNear" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-texture = ExtResource("6_ytku8")
-centered = false
-
-[node name="Enemy_Patrol" parent="." instance=ExtResource("5_oe4ug")]
-position = Vector2(-45, 69)
->>>>>>> b47cb634c4510063acb26a11c05ef3c4c695b340
 
 [editable path="Player"]
 [editable path="LevelSelect"]
