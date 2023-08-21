@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://roc5s3lm45t8"]
+[gd_scene load_steps=10 format=3 uid="uid://roc5s3lm45t8"]
 
 [ext_resource type="Texture2D" uid="uid://hnpwqy6s3dik" path="res://Assets/Environment/Level1/TilesetLv1_8x8.png" id="1_aijhc"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="2_0q7id"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://d3ptj1csoxvd1" path="res://Scenes/Hazard/Spikes.tscn" id="3_qmn5n"]
 [ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/Objects/LevelSelect.tscn" id="4_xeokl"]
 [ext_resource type="Texture2D" uid="uid://cv1j05sxtsul2" path="res://Assets/Environment/Paralax/ParallaxBehind.png" id="5_p4ftj"]
-[ext_resource type="Texture2D" uid="uid://blnlucot47a3r" path="res://Assets/Environment/Paralax/ParallaxNear.png" id="6_ytku8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buy6l"]
 resource_name = "Terrain"
@@ -584,6 +583,7 @@ layer_1/tile_data = PackedInt32Array(-720944, 983041, 0, 524248, 65537, 0, 52426
 position = Vector2(-404, -10)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(1.7818, -48.9994)
 
 [node name="Spikes" parent="." instance=ExtResource("3_qmn5n")]
 position = Vector2(-89, 62)
@@ -600,14 +600,6 @@ motion_mirroring = Vector2(320, 0)
 
 [node name="Behind2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("5_p4ftj")
-centered = false
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-600, -321)
-motion_mirroring = Vector2(320, 0)
-
-[node name="ParallaxNear" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
-texture = ExtResource("6_ytku8")
 centered = false
 
 [connection signal="area_entered" from="Player/Area2D" to="Player" method="_on_area_2d_area_entered"]
