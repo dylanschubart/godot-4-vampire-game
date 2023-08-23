@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://hnpwqy6s3dik" path="res://Assets/Environment/Level1/TilesetLv1_8x8.png" id="1_aijhc"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="2_0q7id"]
 [ext_resource type="Texture2D" uid="uid://buhkdyqxt2hoi" path="res://Assets/Environment/Level1/ForegroundTileset.png" id="2_jv1ts"]
-[ext_resource type="PackedScene" path="res://Scenes/NPC & Enemies/enemy_patrol.tscn" id="3_7wg0e"]
+[ext_resource type="PackedScene" uid="uid://8qrh1m73njfy" path="res://Scenes/NPC & Enemies/enemy_patrol.tscn" id="3_7wg0e"]
 [ext_resource type="PackedScene" uid="uid://d3ptj1csoxvd1" path="res://Scenes/Hazard/Spikes.tscn" id="3_qmn5n"]
 [ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/Objects/LevelSelect.tscn" id="4_xeokl"]
 [ext_resource type="Texture2D" uid="uid://cv1j05sxtsul2" path="res://Assets/Environment/Paralax/ParallaxBehind.png" id="5_p4ftj"]
