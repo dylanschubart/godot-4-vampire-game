@@ -34,7 +34,8 @@ var doubleJump = false
 var sceneChange = false
 var readyForAttack = true
 var attacking = false
-var knockbacked
+var knockbacked = false
+var carrying = false
 
 func _ready():
 	pass
@@ -57,10 +58,14 @@ func _physics_process(delta):
 	#Check if we're interacting
 	if Input.is_action_just_pressed("Interact"):
 		for area in $InteractionArea.get_overlapping_areas():
-			if area.has_method("interact") and area.is_in_group('Interactables'):
-				var interaction = area.interact()
-				interaction_reactor(interaction)
-				return
+			if area.is_in_group('Interactables'):
+				if area.has_method("interact"):
+					var interaction = area.interact()
+					interaction_reactor(interaction)
+					return
+				if area.owner.has_method("interact"):
+					var interaction = area.owner.interact()
+					interaction_reactor(interaction)
 				
 	# Add the gravity.
 	if not is_on_floor():
@@ -87,8 +92,10 @@ func _physics_process(delta):
 #	#if we're not doing any animation & none is playing - go for a walk or idle
 #	or (_animation_player.current_animation == '' and !_animation_player.is_playing())):
 
-	if !jumping and !attacking and moving:
+	if !jumping and !attacking and !carrying and moving:
 		_animation_player.play("Walk")
+	elif !jumping and !attacking and carrying and moving:
+		_animation_player.play("Carry_Walk")
 	elif !jumping and !attacking and !moving:
 		_animation_player.play("Idle")
 
@@ -148,7 +155,7 @@ func jump():
 #			return
 
 func attack():
-	if !attacking and readyForAttack:	
+	if !attacking and !carrying and readyForAttack:	
 		if Input.is_action_just_pressed("Attack"):
 			
 			if Input.is_action_pressed("Aim_Up"):
@@ -210,6 +217,8 @@ func interaction_reactor(interaction):
 			_animation_player.play("Walk")
 			SceneManager.changeSceneWithTransition(SceneManager.scenes[int(interactionIndex)])
 			sceneChange = true
+		'enemy':
+			carrying = !carrying;
 		_:
 			print('Undefined interaction')
 

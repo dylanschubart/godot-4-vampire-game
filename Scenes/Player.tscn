@@ -101,9 +101,130 @@ tracks/2/keys = {
 "values": [0, 4, 7]
 }
 
+[sub_resource type="Animation" id="Animation_5ehws"]
+resource_name = "Death"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_h815u")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 13]
+}
+
+[sub_resource type="Animation" id="Animation_dxo80"]
+resource_name = "Grab_Chalice"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_bf0rb")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [5]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 4]
+}
+
+[sub_resource type="Animation" id="Animation_13r5s"]
+resource_name = "Grab_Chalice_Idle"
+length = 0.7
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_pwil5")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="Animation" id="Animation_wxcme"]
 resource_name = "Idle"
-length = 1.25
+length = 1.3
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -264,7 +385,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_f03so"]
 resource_name = "Jump_Start_Idle"
-length = 0.35
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -340,6 +461,46 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_m2jak"]
+resource_name = "Pick_Up"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_c0w58")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_glm6o"]
@@ -519,172 +680,11 @@ tracks/2/keys = {
 "values": [0, 11]
 }
 
-[sub_resource type="Animation" id="Animation_5ehws"]
-resource_name = "Death"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("13_h815u")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [14]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 13]
-}
-
-[sub_resource type="Animation" id="Animation_m2jak"]
-resource_name = "Pick_Up"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("14_c0w58")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0, 2, 3]
-}
-
-[sub_resource type="Animation" id="Animation_dxo80"]
-resource_name = "Grab_Chalice"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("15_bf0rb")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [5]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0, 4]
-}
-
-[sub_resource type="Animation" id="Animation_13r5s"]
-resource_name = "Grab_Chalice_Idle"
-length = 0.7
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_pwil5")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c0rum"]
 _data = {
 "Attack_Right": SubResource("Animation_gt8t5"),
 "Attack_Up": SubResource("Animation_ahrhy"),
-"Carry Walk": SubResource("Animation_f8jyn"),
+"Carry_Walk": SubResource("Animation_f8jyn"),
 "Death": SubResource("Animation_5ehws"),
 "Grab_Chalice": SubResource("Animation_dxo80"),
 "Grab_Chalice_Idle": SubResource("Animation_13r5s"),
@@ -705,7 +705,7 @@ _data = {
 size = Vector2(20, 34)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7psaj"]
-size = Vector2(14, 33)
+size = Vector2(25, 33)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f8qft"]
 size = Vector2(20, 19)
@@ -719,8 +719,9 @@ shape = SubResource("CapsuleShape2D_qb8a3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -23)
-texture = ExtResource("3_0bo1w")
-hframes = 6
+texture = ExtResource("2_madsg")
+hframes = 12
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
@@ -728,7 +729,7 @@ libraries = {
 "": SubResource("AnimationLibrary_c0rum")
 }
 
-[node name="InteractionArea" type="Area2D" parent="."]
+[node name="InteractionArea" type="Area2D" parent="." groups=["Player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, -17)
@@ -738,7 +739,7 @@ debug_color = Color(0.133333, 0.647059, 0, 0.0705882)
 [node name="AttackRight" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRight"]
-position = Vector2(17, -17.5)
+position = Vector2(22.5, -17.5)
 shape = SubResource("RectangleShape2D_7psaj")
 
 [node name="AttackUp" type="Area2D" parent="."]
@@ -757,6 +758,8 @@ transform = Transform2D(1, 0, 0, 1, 5, 5)
 [node name="InvincibilityTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="HoldPosition" type="Marker2D" parent="."]
 
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]

@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://roc5s3lm45t8"]
+[gd_scene load_steps=10 format=3 uid="uid://roc5s3lm45t8"]
 
 [ext_resource type="Texture2D" uid="uid://hnpwqy6s3dik" path="res://Assets/Environment/Level1/TilesetLv1_8x8.png" id="1_aijhc"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="2_0q7id"]
 [ext_resource type="Texture2D" uid="uid://buhkdyqxt2hoi" path="res://Assets/Environment/Level1/ForegroundTileset.png" id="2_jv1ts"]
 [ext_resource type="PackedScene" uid="uid://8qrh1m73njfy" path="res://Scenes/NPC & Enemies/enemy_patrol.tscn" id="3_7wg0e"]
 [ext_resource type="PackedScene" uid="uid://d3ptj1csoxvd1" path="res://Scenes/Hazard/Spikes.tscn" id="3_qmn5n"]
-[ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/Objects/LevelSelect.tscn" id="4_xeokl"]
 [ext_resource type="Texture2D" uid="uid://cv1j05sxtsul2" path="res://Assets/Environment/Paralax/ParallaxBehind.png" id="5_p4ftj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buy6l"]
@@ -582,6 +581,12 @@ layer_1/tile_data = PackedInt32Array(-720944, 983041, 0, 524248, 65537, 0, 52426
 
 [node name="Enemy_Patrol" parent="." instance=ExtResource("3_7wg0e")]
 
+[node name="LeftPoint" parent="Enemy_Patrol" index="3"]
+position = Vector2(-64, 1)
+
+[node name="RightPoint" parent="Enemy_Patrol" index="4"]
+position = Vector2(143, 0)
+
 [node name="Player" parent="." instance=ExtResource("2_0q7id")]
 position = Vector2(-404, -10)
 
@@ -590,9 +595,6 @@ position = Vector2(1.7818, -48.9994)
 
 [node name="Spikes" parent="." instance=ExtResource("3_qmn5n")]
 position = Vector2(-89, 62)
-
-[node name="LevelSelect" parent="." instance=ExtResource("4_xeokl")]
-position = Vector2(-130, 46)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -605,5 +607,5 @@ motion_mirroring = Vector2(320, 0)
 texture = ExtResource("5_p4ftj")
 centered = false
 
+[editable path="Enemy_Patrol"]
 [editable path="Player"]
-[editable path="LevelSelect"]
