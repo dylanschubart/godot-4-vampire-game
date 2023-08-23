@@ -24,13 +24,17 @@ var flickerTime = 1.5
 #Signal for health change
 signal health_changed(value)
 
+#Knockback vars
+@export var knockback_x = 175.0
+@export var knockback_y = 200.0
+
 var jumping = false
 var moving = false
 var doubleJump = false
 var sceneChange = false
 var readyForAttack = true
 var attacking = false
-
+var knockbacked
 
 func _ready():
 	pass
@@ -43,7 +47,6 @@ func _physics_process(delta):
 		
 	#if hit -> flicker sprite
 	if hit:
-		print(_invincibilityTimer.time_left)
 		if _invincibilityTimer.time_left < flickerTime - 0.2:
 			_sprite.visible = !_sprite.visible
 			flickerTime -= 0.2
@@ -58,10 +61,19 @@ func _physics_process(delta):
 				var interaction = area.interact()
 				interaction_reactor(interaction)
 				return
-	
+				
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		
+	if knockbacked:
+		if is_on_floor():
+			knockbacked = false
+		else:
+			knockback()
+			return
+			
+		
 	
 	move()
 	jump()
@@ -218,11 +230,31 @@ func _on_interaction_area_area_entered(area):
 			emit_signal("health_changed", health)
 			_invincibilityTimer.start()
 			hit = true
+			knockback()
 
 
 func _on_attack_cooldown_timeout():
+	#attack cooldown expired
 	readyForAttack = true
 
 
 func _on_invincibility_timer_timeout():
+	#hit? yes
 	hit = false
+
+func knockback():
+	#knockbacked? yes
+	knockbacked = true
+	#setup velocity of knockback
+	var knockbackDirection
+	if _sprite.flip_h:
+		knockbackDirection = 1
+	else: 
+		knockbackDirection = -1
+	
+	velocity.x = knockbackDirection * knockback_x
+	if (is_on_floor()):
+		velocity.y = -knockback_y ;
+	
+	#perform velocity
+	move_and_slide()

@@ -103,7 +103,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_wxcme"]
 resource_name = "Idle"
-length = 1.25
+length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -264,7 +264,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_f03so"]
 resource_name = "Jump_Start_Idle"
-length = 0.35
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -304,7 +304,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_h7uy3"]
 resource_name = "Jump_Start_Moving"
-length = 0.35
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -439,7 +439,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_dhebh"]
 resource_name = "Walk"
-length = 1.25
+length = 1.2
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -513,7 +513,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.1),
+"times": PackedFloat32Array(0, 1.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0, 11]
@@ -553,7 +553,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1.4),
+"times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0, 13]
@@ -593,7 +593,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
+"times": PackedFloat32Array(0, 0.3, 0.6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [0, 2, 3]
@@ -633,7 +633,7 @@ tracks/2/path = NodePath("Sprite2D:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
+"times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0, 4]
@@ -719,8 +719,8 @@ shape = SubResource("CapsuleShape2D_qb8a3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -23)
-texture = ExtResource("3_0bo1w")
-hframes = 6
+texture = ExtResource("2_pwil5")
+hframes = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
