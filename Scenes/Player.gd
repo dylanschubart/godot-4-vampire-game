@@ -144,7 +144,7 @@ func attack():
 				_animation_player.play("Attack_Up")
 				#hit enemy
 				for area in _attackUp.get_overlapping_areas():
-					if area.parent().has_method("getHit") and area.is_in_group('Enemy_Damage'):
+					if area.owner.has_method("getHit") and area.is_in_group('Enemy_Damage'):
 						area.owner.getHit()
 			else:
 				#animation
