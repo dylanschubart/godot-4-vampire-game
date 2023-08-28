@@ -21,6 +21,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _invincibilityTimer = $InvincibilityTimer
 var hit = false
 var flickerTime = 1.5
+
 #Signal for health change
 signal health_changed(value)
 
@@ -36,6 +37,7 @@ var readyForAttack = true
 var attacking = false
 var knockbacked = false
 var carrying = false
+var levelEnding = false
 
 func _ready():
 	pass
@@ -45,6 +47,8 @@ func _physics_process(delta):
 	
 	#changing levels > play sit animation & nothing else
 	if sceneChange: 
+		if levelEnding: 
+			_animation_player.play("Grab_Chalice_Idle")
 		return
 		
 	#if hit -> flicker sprite
@@ -79,26 +83,14 @@ func _physics_process(delta):
 			knockback()
 			return
 			
-		
-	
 	move()
 	jump()
 	attack()
-	
-	#moving animation stuff or end in idle
-	#if moving - and not jump end - keep checking for walk and idle
-#	if ((_animation_player.current_animation != 'Jump_End_Moving' and _animation_player.current_animation != 'Jump_End_Idle')
-#	#if jump ending - check if jump end played fully - before checking for walk or idle 
-#	or ((_animation_player.current_animation == 'Jump_End_Moving' or _animation_player.current_animation == 'Jump_End_Idle'))
-#	#if we're not doing any animation & none is playing - go for a walk or idle
-#	or (_animation_player.current_animation == '' and !_animation_player.is_playing())):
-
-	if !jumping and !attacking and !carrying and moving:
-		_animation_player.play("Walk")
-	elif !jumping and !attacking and carrying and moving:
-		_animation_player.play("Carry_Walk")
-	elif !jumping and !attacking and !moving:
-		_animation_player.play("Idle")
+		
+	if jumping or attacking: return
+	if carrying and moving: _animation_player.play("Carry_Walk"); return
+	if moving: _animation_player.play("Walk"); return
+	_animation_player.play("Idle")
 
 func move():
 	# Get the input direction and handle the movement/deceleration.
@@ -199,10 +191,9 @@ func _on_animation_player_animation_finished(anim_name):
 		
 	if anim_name == "Attack_Up" or anim_name == "Attack_Right":
 		attacking = false
-	#if the jump end/falling animation has been played reset to idle or walk
-#	if anim_name == "Jump_End_Moving" or anim_name == "Jump_End_Idle":
-#			print_debug("jumping")
-#			jumping = false
+		
+	if anim_name == "Grab_Chalice":
+		levelEnding = true
 
 func interaction_reactor(interaction):
 	var interactionType = interaction.get_slice(' - ', 0)
@@ -217,6 +208,10 @@ func interaction_reactor(interaction):
 		'hubSelect':
 			_animation_player.play("Walk")
 			SceneManager.changeSceneWithTransition(SceneManager.scenes[int(interactionIndex)], false)
+			sceneChange = true
+		'levelEnd':
+			_animation_player.play("Grab_Chalice")
+			SceneManager.changeSceneWithTransition(SceneManager.levels[0], false)
 			sceneChange = true
 		'enemy':
 			carrying = !carrying;

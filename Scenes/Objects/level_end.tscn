@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://4ogxdks6rmn2"]
+[gd_scene load_steps=7 format=3 uid="uid://4ogxdks6rmn2"]
 
 [ext_resource type="Texture2D" uid="uid://blagff7o6erm5" path="res://Assets/Environment/dungeon/ChaliceLady.png" id="1_27f6g"]
+[ext_resource type="Script" path="res://Scenes/Objects/Level_End_Zone.gd" id="2_fklnl"]
 
 [sub_resource type="Animation" id="Animation_qlpwd"]
 resource_name = "Level_End_Idle"
@@ -80,8 +81,9 @@ libraries = {
 "": SubResource("AnimationLibrary_3jp5a")
 }
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Level_End_Zone" type="Area2D" parent="." groups=["Interactables"]]
+script = ExtResource("2_fklnl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level_End_Zone"]
 position = Vector2(0, -20.5)
 shape = SubResource("RectangleShape2D_788j0")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://roc5s3lm45t8"]
+[gd_scene load_steps=11 format=3 uid="uid://roc5s3lm45t8"]
 
 [ext_resource type="Texture2D" uid="uid://hnpwqy6s3dik" path="res://Assets/Environment/Level1/TilesetLv1_8x8.png" id="1_aijhc"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="2_0q7id"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8qrh1m73njfy" path="res://Scenes/NPC & Enemies/enemy_patrol.tscn" id="3_7wg0e"]
 [ext_resource type="PackedScene" uid="uid://d3ptj1csoxvd1" path="res://Scenes/Hazard/Spikes.tscn" id="3_qmn5n"]
 [ext_resource type="Texture2D" uid="uid://cv1j05sxtsul2" path="res://Assets/Environment/Paralax/ParallaxBehind.png" id="5_p4ftj"]
+[ext_resource type="PackedScene" uid="uid://4ogxdks6rmn2" path="res://Scenes/Objects/level_end.tscn" id="7_x2a75"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buy6l"]
 resource_name = "Terrain"
@@ -606,6 +607,10 @@ motion_mirroring = Vector2(320, 0)
 [node name="Behind2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
 texture = ExtResource("5_p4ftj")
 centered = false
+
+[node name="LevelEnd" parent="." instance=ExtResource("7_x2a75")]
+z_index = -1
+position = Vector2(647, 28)
 
 [editable path="Enemy_Patrol"]
 [editable path="Player"]
