@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-@onready var sceneChangeTimer = $SceneChangeTimer
-
 var currentScene = null
 var sceneChange = false
 var nextScene
@@ -11,12 +9,43 @@ const scenes = [("res://world.tscn")
 var levels = [("res://world.tscn")
 ,"res://Scenes/Levels/level_1.tscn"]
 
-func changeSceneWithTransition(scenePath):	
-	sceneChangeTimer.start()
-	nextScene = scenePath
+func changeSceneWithTransition(scenePath, levels):
+	var playerCamera = get_viewport().get_camera_2d()
+	if get_node("Camera2D").enabled:
+		print_debug(get_node("Camera2D"))
+	if levels:
+		playerCamera.enabled = false
+		get_node("Camera2D").enabled = true
+		get_node("Camera2D").make_current()
+		get_node("AnimationPlayer").play("LevelTransition")
+		get_node("SpiralTransition/AnimationPlayer").play("Spiral")
+		await get_node("AnimationPlayer").animation_finished
+		goto_scene(scenePath)
+		playerCamera.enabled = true
+		playerCamera.make_current()
+		get_node("AnimationPlayer").play("TransOut")
+		await get_node("AnimationPlayer").animation_finished
+		get_node("ColorRect").hide()
+		get_node("Label").hide()
+	else:
+		get_node("ColorRect").show()
+		get_node("Label").show()
+		get_node("AnimationPlayer").play("TransIn")
+		await get_node("AnimationPlayer").animation_finished
+		goto_scene(scenePath)
+		get_node("AnimationPlayer").play("TransOut")
+		await get_node("AnimationPlayer").animation_finished
+		get_node("ColorRect").hide()
+		get_node("Label").hide()
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_node("Camera2D").enabled = false
+	get_node("ColorRect").hide()
+	get_node("Label").hide()
+	get_node("CloseupPerson").hide()
+	get_node("SpiralTransition").hide()
 	var root = get_tree().root
 	currentScene = root.get_child(root.get_child_count() - 1)
 
@@ -52,10 +81,7 @@ func _deferred_goto_scene(path):
 
 	# Optionally, to make it compatible with the SceneTree.change_scene_to_file() API.
 	get_tree().current_scene = currentScene
+	print_debug("scene change")
 
 func saveCurrentSceneToLevels():
 	levels[0] = get_tree().current_scene.scene_file_path
-
-
-func _on_scene_change_timer_timeout():
-	goto_scene(nextScene)

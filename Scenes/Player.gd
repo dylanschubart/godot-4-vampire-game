@@ -42,6 +42,7 @@ func _ready():
 	
 
 func _physics_process(delta):
+	
 	#changing levels > play sit animation & nothing else
 	if sceneChange: 
 		return
@@ -210,12 +211,12 @@ func interaction_reactor(interaction):
 	match interactionType:
 		'levelSelect':
 			_animation_player.play("Sit")
-			SceneManager.changeSceneWithTransition(SceneManager.levels[int(interactionIndex)])
+			SceneManager.changeSceneWithTransition(SceneManager.levels[int(interactionIndex)], true)
 			SceneManager.saveCurrentSceneToLevels()
 			sceneChange = true
 		'hubSelect':
 			_animation_player.play("Walk")
-			SceneManager.changeSceneWithTransition(SceneManager.scenes[int(interactionIndex)])
+			SceneManager.changeSceneWithTransition(SceneManager.scenes[int(interactionIndex)], false)
 			sceneChange = true
 		'enemy':
 			carrying = !carrying;
