@@ -124,6 +124,8 @@ debug_color = Color(0.682353, 0.376471, 0.847059, 0.419608)
 z_index = 2
 position = Vector2(-89, -9)
 health = 999
+knockback_x = 175.0
+knockback_y = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = -125
@@ -158,5 +160,8 @@ disabled = false
 
 [node name="AnimationPlayer" parent="Door/DoorTexture" index="0"]
 reset_on_save = true
+
+[connection signal="tree_entered" from="." to="Player" method="_on_room_1_tree_entered"]
+[connection signal="tree_exited" from="." to="Player" method="_on_room_1_tree_exited"]
 
 [editable path="Door"]

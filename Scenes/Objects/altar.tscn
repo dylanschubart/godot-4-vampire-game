@@ -19,9 +19,9 @@ texture = ExtResource("1_71686")
 position = Vector2(1.5, -11.5)
 shape = SubResource("RectangleShape2D_httte")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Sacrifice_Area" type="Area2D" parent="." groups=["Sacrifice_Area"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sacrifice_Area"]
 position = Vector2(1.5, -37)
 shape = SubResource("RectangleShape2D_bm2q0")
 debug_color = Color(0.705882, 0.415686, 0.670588, 0.419608)

@@ -88,7 +88,10 @@ func interact():
 		z_index = 1
 	else:
 		z_index = 0
-		
+		for area in _areaHit.get_overlapping_areas():
+			if area.is_in_group("Sacrifice_Area"):
+				get_parent().remove_child(self)
+	
 	return "enemy"
 
 

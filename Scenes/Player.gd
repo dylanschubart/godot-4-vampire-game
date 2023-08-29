@@ -38,19 +38,24 @@ var attacking = false
 var knockbacked = false
 var carrying = false
 var levelEnding = false
+var returning = false
+var levelEnter = false
 
 func _ready():
 	get_node("Camera2D").make_current()
 	
 
 func _physics_process(delta):
-	
 	#changing levels > play sit animation & nothing else
 	if sceneChange: 
 		if levelEnding: 
 			_animation_player.play("Grab_Chalice_Idle")
 		return
 		
+	if returning:
+		_animation_player.play_backwards("Sit")
+		return
+	
 	#if hit -> flicker sprite
 	if hit:
 		if _invincibilityTimer.time_left < flickerTime - 0.2:
@@ -174,7 +179,8 @@ func attack():
 
 #AnimationPlayer Signal, if an animation finishes it sends a signal to this linked connection and we can check if specific animations have ended
 func _on_animation_player_animation_finished(anim_name):
-#check if specific animations have ended
+	#check if specific animations have ended
+	print(anim_name)
 	#if jumping animation has been played play the fall animation
 	if anim_name == "Jump_Start_Moving" or anim_name == "Jump_Air" and !doubleJump:
 		_animation_player.play("Jump_End_Moving")
@@ -186,8 +192,10 @@ func _on_animation_player_animation_finished(anim_name):
 	elif anim_name == "Jump_Air" and !moving:
 		_animation_player.play("Jump_End_Idle")
 		
-	if anim_name == "Sit":
+	if anim_name == "Sit" and !returning:
 		_animation_player.play("Sit_Idle")
+	if returning:
+		returning = false
 		
 	if anim_name == "Attack_Up" or anim_name == "Attack_Right":
 		attacking = false
@@ -204,6 +212,7 @@ func interaction_reactor(interaction):
 			_animation_player.play("Sit")
 			SceneManager.changeSceneWithTransition(SceneManager.levels[int(interactionIndex)], true)
 			SceneManager.saveCurrentSceneToLevels()
+			levelEnter = true
 			sceneChange = true
 		'hubSelect':
 			_animation_player.play("Walk")
@@ -217,16 +226,6 @@ func interaction_reactor(interaction):
 			carrying = !carrying;
 		_:
 			print('Undefined interaction')
-
-
-func _on_world_tree_exited():
-	var doorList = [$"../Door"]
-	ResourceManager.saveHub($".", $"../Daddy's path/Daddy's follow path", doorList)
-
-
-func _on_world_tree_entered():
-	var doorList = [$"../Door"]
-	ResourceManager.loadHub($".", $"../Daddy's path/Daddy's follow path", doorList)
 
 func _on_interaction_area_area_entered(area):
 	if !hit:
@@ -263,3 +262,20 @@ func knockback():
 	
 	#perform velocity
 	move_and_slide()
+
+#level hub
+func _on_world_tree_exited():
+	var doorList = [$"../Door"]
+	ResourceManager.saveHub($".", $"../Daddy's path/Daddy's follow path", doorList)
+
+
+func _on_world_tree_entered():
+	var doorList = [$"../Door"]
+	ResourceManager.loadHub($".", $"../Daddy's path/Daddy's follow path", doorList)
+
+#rooms
+func _on_room_1_tree_exited():
+	ResourceManager.saveRoom(0, $".", levelEnter)
+	
+func _on_room_1_tree_entered():
+	ResourceManager.loadRoom(0, $".")

@@ -1,8 +1,14 @@
 extends CanvasLayer
 
+#hubSave
 var hubPlayerPosition
 var hubDaddyProgress
 var hubOpenedDoors = []
+
+#roomSaves
+var roomPlayerPosition = []
+var roomCompleted = []
+var wentIntoLevel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,7 +43,8 @@ func loadHub(player, daddyPath, door):
 		for item in door:
 			if item.get_node("InteractableZone").doorNumber == openedDoor:
 				item.get_node("InteractableZone/CollisionShape2D").set_disabled(false)
-				item.get_node("DoorTexture/AnimationPlayer").seek(1.1, true)
+				item.get_node("DoorTexture/AnimationPlayer").play("Open")
+				item.get_node("DoorTexture/AnimationPlayer").seek(1.0)
 		
 	print('Loading hub')
 	print('Player position: ' + str(hubPlayerPosition))
@@ -45,12 +52,18 @@ func loadHub(player, daddyPath, door):
 	print('Opened doors: ' + str(hubOpenedDoors))
 		
 
-func saveRoom(_index):
-	pass
+func saveRoom(index, player, levelEntered):
+	if roomPlayerPosition.size() > index:
+		roomPlayerPosition[index] = player.global_position
+	else: 
+		roomPlayerPosition.append(player.global_position)
+	wentIntoLevel = levelEntered
 	
-func loadRoom(_index):
-	pass
-
+func loadRoom(index, player):
+	if roomPlayerPosition.size() > index:
+		player.global_position = roomPlayerPosition[index]
+	player.returning = wentIntoLevel
+		
 func saveLevel(_index):
 	pass
 

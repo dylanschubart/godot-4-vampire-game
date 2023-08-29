@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://roc5s3lm45t8"]
+[gd_scene load_steps=12 format=3 uid="uid://roc5s3lm45t8"]
 
 [ext_resource type="Texture2D" uid="uid://hnpwqy6s3dik" path="res://Assets/Environment/Level1/TilesetLv1_8x8.png" id="1_aijhc"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="2_0q7id"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d3ptj1csoxvd1" path="res://Scenes/Hazard/Spikes.tscn" id="3_qmn5n"]
 [ext_resource type="Texture2D" uid="uid://cv1j05sxtsul2" path="res://Assets/Environment/Paralax/ParallaxBehind.png" id="5_p4ftj"]
 [ext_resource type="PackedScene" uid="uid://4ogxdks6rmn2" path="res://Scenes/Objects/level_end.tscn" id="7_x2a75"]
+[ext_resource type="PackedScene" uid="uid://1axatpmf3npj" path="res://Scenes/Objects/altar.tscn" id="8_j4swh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buy6l"]
 resource_name = "Terrain"
@@ -590,6 +591,9 @@ position = Vector2(143, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_0q7id")]
 position = Vector2(-404, -10)
+health = 3
+knockback_x = 175.0
+knockback_y = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1.7818, -48.9994)
@@ -611,6 +615,10 @@ centered = false
 [node name="LevelEnd" parent="." instance=ExtResource("7_x2a75")]
 z_index = -1
 position = Vector2(647, 28)
+
+[node name="Altar" parent="." instance=ExtResource("8_j4swh")]
+z_index = -1
+position = Vector2(847, 52)
 
 [editable path="Enemy_Patrol"]
 [editable path="Player"]

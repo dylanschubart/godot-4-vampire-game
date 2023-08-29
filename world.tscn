@@ -89,6 +89,8 @@ frame = 0
 z_index = 1
 position = Vector2(-328, -52)
 health = 999
+knockback_x = 175.0
+knockback_y = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(28, -4)
