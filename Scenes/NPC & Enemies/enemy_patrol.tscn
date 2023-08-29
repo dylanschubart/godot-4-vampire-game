@@ -1,7 +1,95 @@
-[gd_scene load_steps=5 format=3 uid="uid://8qrh1m73njfy"]
+[gd_scene load_steps=9 format=3 uid="uid://8qrh1m73njfy"]
 
 [ext_resource type="Script" path="res://Scenes/NPC & Enemies/enemy_patrol.gd" id="1_w7fem"]
-[ext_resource type="Texture2D" uid="uid://0glrnxjtpksa" path="res://Assets/NPC/Enemies/Crawler-CarryCorpse.png" id="2_jco3m"]
+[ext_resource type="Texture2D" uid="uid://c13xm2isd8c2q" path="res://Assets/NPC/Enemies/Crawler-Walking.png" id="2_6fcww"]
+[ext_resource type="Texture2D" uid="uid://duiwsnhwu8dwd" path="res://Assets/NPC/Enemies/Crawler-Death.png" id="2_jtq3h"]
+
+[sub_resource type="Animation" id="Animation_wy37q"]
+resource_name = "Death"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_jtq3h")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 6]
+}
+
+[sub_resource type="Animation" id="Animation_blkgt"]
+resource_name = "Walk"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_6fcww")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g3no3"]
+_data = {
+"Death": SubResource("Animation_wy37q"),
+"Walk": SubResource("Animation_blkgt")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whyub"]
 size = Vector2(30, 29)
@@ -13,8 +101,15 @@ size = Vector2(22.6, 10.4)
 script = ExtResource("1_w7fem")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -29)
-texture = ExtResource("2_jco3m")
+position = Vector2(2, -23)
+texture = ExtResource("2_jtq3h")
+hframes = 7
+frame = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_g3no3")
+}
 
 [node name="AreaHit" type="Area2D" parent="." groups=["Enemy_Damage", "Sacrificable"]]
 

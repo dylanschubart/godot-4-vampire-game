@@ -9,11 +9,10 @@ const scenes = [("res://world.tscn")
 var levels = [("res://world.tscn")
 ,"res://Scenes/Levels/level_1.tscn"]
 
-func changeSceneWithTransition(scenePath, levels):
+func changeSceneWithTransition(scenePath, is_level):
 	var playerCamera = get_viewport().get_camera_2d()
-	if get_node("Camera2D").enabled:
-		print_debug(get_node("Camera2D"))
-	if levels:
+	
+	if is_level:
 		get_node("CanvasLayer/ColorRect").show()
 		get_node("AnimationPlayer").play("TransInLong")
 		await get_node("AnimationPlayer").animation_finished

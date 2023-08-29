@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 #Sprite to flip
 @onready var _sprite = $Sprite2D
 
@@ -17,23 +18,36 @@ extends CharacterBody2D
 #Player to be carried by
 @onready var _playerHoldPos = $"../Player/HoldPosition"
 
+@onready var _anim_player = $Sprite2D/AnimationPlayer
 #speed
 @export var movement_speed = 90.0
 @export var movement_speed_nearby = 120.0
 
+var corpse = preload("res://Assets/NPC/Enemies/Crawler-CarryCorpse.png")
+
 #checks
-var moving_left = true;
-var dead = false;
-var detected = false;
-var carried = false;
-var float_up = false;
+var moving_left = true
+var dead = false
+var detected = false
+var carried = false
+var float_up = false
+var deathanim = false
 
 func _physics_process(_delta):
 	if !dead:
 		move()
 		checkPoints()
+		_anim_player.play("Walk")
+	elif dead and !deathanim:
+		deathanim = true
+		_anim_player.play("Death")
 		
 	if carried:
+		_sprite.set_texture(corpse)
+		_sprite.set_hframes(1)
+		_sprite.set_vframes(1)
+		_sprite.set_frame(0)
+
 		self.position = _playerHoldPos.global_position
 		
 	if !carried and dead and _floatTimer.is_stopped():
@@ -53,12 +67,12 @@ func move():
 
 func checkPoints():
 	if moving_left and position.x <= _left.position.x:
-		_sprite.flip_h = true
+		_sprite.flip_h = false
 		_areaDetection.scale.x = -1
 		moving_left = false
 		
 	if !moving_left and position.x >= _right.position.x:
-		_sprite.flip_h = false
+		_sprite.flip_h = true
 		_areaDetection.scale.x = 1
 		moving_left = true
 		
