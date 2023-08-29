@@ -250,11 +250,12 @@ libraries = {
 }
 
 [node name="CloseupPerson" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(160, 90)
 texture = ExtResource("2_hkiob")
 
 [node name="SpiralTransition" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(160, 90)
 texture = ExtResource("3_yld5x")
 hframes = 2

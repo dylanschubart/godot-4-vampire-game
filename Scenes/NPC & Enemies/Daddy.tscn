@@ -196,8 +196,8 @@ size = Vector2(28, 57)
 
 [node name="Daddy" type="Sprite2D" parent="."]
 position = Vector2(5, -30)
-texture = ExtResource("1_lwpne")
-hframes = 14
+texture = ExtResource("2_3m56l")
+hframes = 6
 frame = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Daddy"]

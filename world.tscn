@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cotvapss3xvi"]
+[gd_scene load_steps=16 format=3 uid="uid://cotvapss3xvi"]
 
 [ext_resource type="Texture2D" uid="uid://oho6uwwsw2a4" path="res://Assets/Environment/dungeon/Hub_Background.png" id="1_o0e5a"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="1_oavew"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bo7rlfhfey3gv" path="res://Scenes/NPC & Enemies/Daddy.tscn" id="6_cke6f"]
 [ext_resource type="Script" path="res://Scenes/NPC & Enemies/Daddy.gd" id="7_wj5h4"]
 [ext_resource type="Texture2D" uid="uid://cw3x3xn1gqvsn" path="res://Assets/Environment/dungeon/Pillar.png" id="8_kse4c"]
+[ext_resource type="Texture2D" uid="uid://dpyvvk15jkgrf" path="res://Assets/NPC/Daddy-Bat.png" id="8_mi8c8"]
 [ext_resource type="Texture2D" uid="uid://d0j8m2o5yclkw" path="res://Assets/Environment/dungeon/Door_side_backgroundarch.png" id="9_jffop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ys3on"]
@@ -108,7 +109,11 @@ loop = false
 [node name="Daddy" parent="Daddy\'s path/Daddy\'s follow path" instance=ExtResource("6_cke6f")]
 position = Vector2(-1, 31)
 script = ExtResource("7_wj5h4")
-_speed = 300
+_speed = 150
+
+[node name="Daddy" parent="Daddy\'s path/Daddy\'s follow path/Daddy" index="0"]
+texture = ExtResource("8_mi8c8")
+hframes = 6
 
 [node name="WallLeft2" type="StaticBody2D" parent="."]
 
@@ -130,3 +135,4 @@ texture = ExtResource("9_jffop")
 [connection signal="reached_path_end" from="Daddy's path/Daddy's follow path/Daddy" to="Door/InteractableZone" method="_on_daddy_reached_path_end"]
 
 [editable path="Door"]
+[editable path="Daddy's path/Daddy's follow path/Daddy"]
