@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bis0jdsku4p3m"]
+[gd_scene load_steps=12 format=3 uid="uid://bis0jdsku4p3m"]
 
 [ext_resource type="Script" path="res://SceneManager.gd" id="1_15ug7"]
 [ext_resource type="Texture2D" uid="uid://brc5pljmnmmsr" path="res://Assets/Environment/Transitions/CloseupPerson.png" id="2_hkiob"]
@@ -6,7 +6,7 @@
 
 [sub_resource type="Animation" id="Animation_usc6o"]
 resource_name = "LevelTransition"
-length = 5.0
+length = 31.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,7 +14,7 @@ tracks/0/path = NodePath("SpiralTransition:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.2, 4.9),
+"times": PackedFloat32Array(0, 10.3, 30.3),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -26,10 +26,10 @@ tracks/1/path = NodePath("Camera2D:zoom")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 2.1, 2.2, 4.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(4.7, 10.3, 10.5, 17.2, 18.3, 20.6, 21.5, 23.6, 24.4, 26.4, 27.2, 29, 30.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(9.795, 9.795), Vector2(1, 1), Vector2(9.795, 9.795)]
+"values": [Vector2(1, 1), Vector2(10, 10), Vector2(1, 1), Vector2(1, 1), Vector2(1.20141, 1.20141), Vector2(1.20141, 1.20141), Vector2(1.60424, 1.60424), Vector2(1.60424, 1.60424), Vector2(2.58224, 2.58224), Vector2(2.58224, 2.58224), Vector2(4.06178, 4.06178), Vector2(4.06178, 4.06178), Vector2(9.795, 9.795)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -38,7 +38,7 @@ tracks/2/path = NodePath("CloseupPerson:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.2),
+"times": PackedFloat32Array(0, 10.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -50,10 +50,10 @@ tracks/3/path = NodePath("Camera2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.6, 3.2, 4, 4.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(17, 17.5, 18.4, 20.7, 21.6, 23.8, 24.5, 26.5, 27.3, 29.1, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(160, 90), Vector2(161, 96), Vector2(160, 88), Vector2(159, 101), Vector2(157, 96)]
+"values": [Vector2(160, 90), Vector2(160, 86), Vector2(160, 101), Vector2(160, 97), Vector2(159, 102), Vector2(158, 98), Vector2(158, 102), Vector2(158, 95), Vector2(157, 108), Vector2(157, 104), Vector2(156, 111)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -62,10 +62,34 @@ tracks/4/path = NodePath("Camera2D:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2.6, 3.2, 4, 4.6),
+"times": PackedFloat32Array(17, 17.5, 18.4, 20.7, 21.6, 23.8, 24.5, 26.5, 27.3, 29.1, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CloseupPerson:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 1.6, 6.9, 10.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 0.0, 0.0]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpiralTransition:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(10.5, 13.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_jiaeh"]
@@ -92,7 +116,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(160, 88)]
+"values": [Vector2(159, 97)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -106,6 +130,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CloseupPerson:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_flvd2"]
 resource_name = "TransIn"
@@ -117,18 +153,6 @@ tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Label:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
@@ -150,17 +174,21 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Label:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5),
+
+[sub_resource type="Animation" id="Animation_k4hx1"]
+resource_name = "TransInLong"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.7, 3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_er254"]
@@ -168,6 +196,7 @@ _data = {
 "LevelTransition": SubResource("Animation_usc6o"),
 "RESET": SubResource("Animation_jiaeh"),
 "TransIn": SubResource("Animation_flvd2"),
+"TransInLong": SubResource("Animation_k4hx1"),
 "TransOut": SubResource("Animation_dyiso")
 }
 
@@ -215,21 +244,6 @@ offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -195.5
-offset_top = -103.0
-offset_right = -124.5
-offset_bottom = -77.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "loading..."
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_er254")
@@ -241,6 +255,7 @@ texture = ExtResource("2_hkiob")
 
 [node name="SpiralTransition" type="Sprite2D" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(160, 90)
 texture = ExtResource("3_yld5x")
 hframes = 2
@@ -251,4 +266,4 @@ libraries = {
 }
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(160, 88)
+position = Vector2(159, 97)

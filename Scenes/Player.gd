@@ -40,7 +40,7 @@ var carrying = false
 var levelEnding = false
 
 func _ready():
-	pass
+	get_node("Camera2D").make_current()
 	
 
 func _physics_process(delta):

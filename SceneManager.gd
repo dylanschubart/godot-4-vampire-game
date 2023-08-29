@@ -14,39 +14,34 @@ func changeSceneWithTransition(scenePath, levels):
 	if get_node("Camera2D").enabled:
 		print_debug(get_node("Camera2D"))
 	if levels:
-		playerCamera.enabled = false
-		get_node("Camera2D").enabled = true
+		get_node("CanvasLayer/ColorRect").show()
+		get_node("AnimationPlayer").play("TransInLong")
+		await get_node("AnimationPlayer").animation_finished
+		get_node("CanvasLayer/ColorRect").hide()
 		get_node("Camera2D").make_current()
 		get_node("AnimationPlayer").play("LevelTransition")
 		get_node("SpiralTransition/AnimationPlayer").play("Spiral")
 		await get_node("AnimationPlayer").animation_finished
 		goto_scene(scenePath)
-		playerCamera.enabled = true
 		playerCamera.make_current()
 		get_node("AnimationPlayer").play("TransOut")
 		await get_node("AnimationPlayer").animation_finished
 		get_node("CanvasLayer/ColorRect").hide()
-		get_node("CanvasLayer/Label").hide()
 		playerCamera = get_viewport().get_camera_2d()
 		playerCamera.make_current()
-		get_node("Camera2D").enabled = false
 	else:
 		get_node("CanvasLayer/ColorRect").show()
-		get_node("CanvasLayer/Label").show()
 		get_node("AnimationPlayer").play("TransIn")
 		await get_node("AnimationPlayer").animation_finished
 		goto_scene(scenePath)
 		get_node("AnimationPlayer").play("TransOut")
 		await get_node("AnimationPlayer").animation_finished
 		get_node("CanvasLayer/ColorRect").hide()
-		get_node("CanvasLayer/Label").hide()
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("Camera2D").enabled = false
 	get_node("CanvasLayer/ColorRect").hide()
-	get_node("CanvasLayer/Label").hide()
 	get_node("CloseupPerson").hide()
 	get_node("SpiralTransition").hide()
 	var root = get_tree().root
