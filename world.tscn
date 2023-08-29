@@ -113,7 +113,6 @@ _speed = 150
 
 [node name="Daddy" parent="Daddy\'s path/Daddy\'s follow path/Daddy" index="0"]
 texture = ExtResource("8_mi8c8")
-hframes = 6
 
 [node name="WallLeft2" type="StaticBody2D" parent="."]
 
