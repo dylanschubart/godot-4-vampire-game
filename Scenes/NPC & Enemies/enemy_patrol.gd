@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #Sprite to flip
 @onready var _sprite = $Sprite2D
@@ -17,6 +19,7 @@ extends CharacterBody2D
 
 #Player to be carried by
 @onready var _playerHoldPos = $"../Player/HoldPosition"
+@onready var _player = $"../Player"
 
 @onready var _anim_player = $Sprite2D/AnimationPlayer
 #speed
@@ -24,16 +27,20 @@ extends CharacterBody2D
 @export var movement_speed_nearby = 120.0
 
 var corpse = preload("res://Assets/NPC/Enemies/Crawler-CarryCorpse.png")
-
+var deathSprite = preload("res://Assets/NPC/Enemies/Crawler-Death.png")
 #checks
 var moving_left = true
 var dead = false
 var detected = false
 var carried = false
-var float_up = false
 var deathanim = false
+var ground = true
 
-func _physics_process(_delta):
+func _physics_process(delta):
+		# Add the gravity.
+	if not is_on_floor():
+		velocity.y += gravity * delta
+		
 	if !dead:
 		move()
 		checkPoints()
@@ -47,11 +54,18 @@ func _physics_process(_delta):
 		_sprite.set_hframes(1)
 		_sprite.set_vframes(1)
 		_sprite.set_frame(0)
+		ground = false
 
 		self.position = _playerHoldPos.global_position
 		
-	if !carried and dead and _floatTimer.is_stopped():
-		_floatTimer.start()
+	if !carried and dead and !ground:
+		ground = true
+		_sprite.set_texture(deathSprite)
+		_sprite.set_hframes(7)
+		_sprite.set_vframes(1)
+		_sprite.set_frame(6)
+		self.position = _player.position
+
 	
 
 func move():
@@ -103,12 +117,3 @@ func _on_area_detection_area_entered(area):
 func _on_area_detection_area_exited(area):
 	if area.is_in_group("Player"):
 		detected = false;
-
-
-func _on_float_timer_timeout():
-	if float_up:
-		position.y -= 1.5
-		float_up = false
-	else:
-		position.y += 1.5
-		float_up = true

@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 250.0
-const JUMP_VELOCITY = 300.0
+@export var SPEED = 150.0
+@export var JUMP_VELOCITY = 300.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -15,6 +15,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _attackRight = $AttackRight
 @onready var _attackUp = $AttackUp
 @onready var _attackCooldown = $AttackCooldown
+
+#Carry Position
+@onready var _holdpos = $HoldPosition
 
 #HUD element & all info
 @export var health = 3
@@ -110,7 +113,9 @@ func move():
 
 	move_and_slide()
 	#always flip on direction changes
-	if (direction != 0): 
+	if (direction != 0):
+		if (_holdpos.position.x < 0 and direction == 1) or (_holdpos.position.x > 0 and direction == -1): 
+			_holdpos.position.x = _holdpos.position.x * -1
 		_sprite.flip_h = (direction < 0);
 		_attackRight.scale.x = direction
 
@@ -266,12 +271,12 @@ func knockback():
 #level hub
 func _on_world_tree_exited():
 	var doorList = [$"../Door"]
-	ResourceManager.saveHub($".", $"../Daddy's path/Daddy's follow path", doorList)
+	ResourceManager.saveHub($".", $"../WalkingPath/WalkingFollowPath", doorList)
 
 
 func _on_world_tree_entered():
 	var doorList = [$"../Door"]
-	ResourceManager.loadHub($".", $"../Daddy's path/Daddy's follow path", doorList)
+	ResourceManager.loadHub($".", $"../WalkingPath/WalkingFollowPath" , doorList)
 
 #rooms
 func _on_room_1_tree_exited():

@@ -124,8 +124,6 @@ debug_color = Color(0.682353, 0.376471, 0.847059, 0.419608)
 z_index = 2
 position = Vector2(-89, -9)
 health = 999
-knockback_x = 175.0
-knockback_y = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_left = -125

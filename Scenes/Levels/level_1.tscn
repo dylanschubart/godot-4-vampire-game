@@ -583,17 +583,14 @@ layer_1/tile_data = PackedInt32Array(-720944, 983041, 0, 524248, 65537, 0, 52426
 
 [node name="Enemy_Patrol" parent="." instance=ExtResource("3_7wg0e")]
 
-[node name="LeftPoint" parent="Enemy_Patrol" index="3"]
+[node name="LeftPoint" parent="Enemy_Patrol" index="4"]
 position = Vector2(-64, 1)
 
-[node name="RightPoint" parent="Enemy_Patrol" index="4"]
+[node name="RightPoint" parent="Enemy_Patrol" index="5"]
 position = Vector2(143, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_0q7id")]
 position = Vector2(-404, -10)
-health = 3
-knockback_x = 175.0
-knockback_y = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1.7818, -48.9994)

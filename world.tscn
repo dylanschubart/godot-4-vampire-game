@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cotvapss3xvi"]
+[gd_scene load_steps=17 format=3 uid="uid://cotvapss3xvi"]
 
 [ext_resource type="Texture2D" uid="uid://oho6uwwsw2a4" path="res://Assets/Environment/dungeon/Hub_Background.png" id="1_o0e5a"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="1_oavew"]
@@ -25,6 +25,12 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -10, -6, 0, 0, 0, 0, 178, -6, 0, 0, 0, 0, 214, 20, 0, 0, 0, 0, 459, 20)
 }
 point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_26j5p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -17, -116, 0, 0, 0, 0, 42, -116, 0, 0, 0, 0, -14, -103, 0, 0, 0, 0, 28, -97, 0, 0, 0, 0, -6, -87, 0, 0, 0, 0, 18, -68, 0, 0, 0, 0, -1, -31)
+}
+point_count = 7
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beipo"]
 size = Vector2(21, 91)
@@ -89,8 +95,6 @@ frame = 0
 z_index = 1
 position = Vector2(-328, -52)
 health = 999
-knockback_x = 175.0
-knockback_y = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(28, -4)
@@ -99,21 +103,30 @@ limit_top = -180
 limit_right = 354
 limit_bottom = 0
 
-[node name="Daddy\'s path" type="Path2D" parent="."]
-position = Vector2(-346, -72)
+[node name="WalkingPath" type="Path2D" parent="."]
+position = Vector2(-337, -68)
 curve = SubResource("Curve2D_00nt3")
 
-[node name="Daddy\'s follow path" type="PathFollow2D" parent="Daddy\'s path"]
+[node name="WalkingFollowPath" type="PathFollow2D" parent="WalkingPath"]
 position = Vector2(-10, -6)
 rotates = false
 loop = false
 
-[node name="Daddy" parent="Daddy\'s path/Daddy\'s follow path" instance=ExtResource("6_cke6f")]
+[node name="FlyingPath" type="Path2D" parent="."]
+position = Vector2(-357, -47)
+curve = SubResource("Curve2D_26j5p")
+
+[node name="FlyingFollowPath" type="PathFollow2D" parent="FlyingPath"]
+position = Vector2(-17, -116)
+rotates = false
+loop = false
+
+[node name="Daddy" parent="FlyingPath/FlyingFollowPath" instance=ExtResource("6_cke6f")]
 position = Vector2(-1, 31)
 script = ExtResource("7_wj5h4")
 _speed = 150
 
-[node name="Daddy" parent="Daddy\'s path/Daddy\'s follow path/Daddy" index="0"]
+[node name="Daddy" parent="FlyingPath/FlyingFollowPath/Daddy" index="0"]
 texture = ExtResource("8_mi8c8")
 
 [node name="WallLeft2" type="StaticBody2D" parent="."]
@@ -133,7 +146,7 @@ texture = ExtResource("9_jffop")
 
 [connection signal="tree_entered" from="." to="Player" method="_on_world_tree_entered"]
 [connection signal="tree_exited" from="." to="Player" method="_on_world_tree_exited"]
-[connection signal="reached_path_end" from="Daddy's path/Daddy's follow path/Daddy" to="Door/InteractableZone" method="_on_daddy_reached_path_end"]
+[connection signal="reached_path_end" from="FlyingPath/FlyingFollowPath/Daddy" to="Door/InteractableZone" method="_on_daddy_reached_path_end"]
 
 [editable path="Door"]
-[editable path="Daddy's path/Daddy's follow path/Daddy"]
+[editable path="FlyingPath/FlyingFollowPath/Daddy"]
