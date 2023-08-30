@@ -28,9 +28,9 @@ point_count = 4
 
 [sub_resource type="Curve2D" id="Curve2D_26j5p"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -17, -116, 0, 0, 0, 0, 42, -116, 0, 0, 0, 0, -14, -103, 0, 0, 0, 0, 28, -97, 0, 0, 0, 0, -6, -87, 0, 0, 0, 0, 18, -68, 0, 0, 0, 0, -1, -31)
+"points": PackedVector2Array(0, 0, 0, 0, -17, -116, 0, 0, 0, 0, 42, -116, 0, 0, 0, 0, -14, -103, 0, 0, 0, 0, 28, -97, 0, 0, 0, 0, -6, -87, 0, 0, 0, 0, 18, -68, 0, 0, 0, 0, 15.0058, -62.2085, 0, 0, 0, 0, 6.10763, -45.7508, 0, 0, 0, 0, 9, -27)
 }
-point_count = 7
+point_count = 9
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_beipo"]
 size = Vector2(21, 91)
@@ -124,7 +124,7 @@ loop = false
 [node name="Daddy" parent="FlyingPath/FlyingFollowPath" instance=ExtResource("6_cke6f")]
 position = Vector2(-1, 31)
 script = ExtResource("7_wj5h4")
-_speed = 150
+_speed = 200
 
 [node name="Daddy" parent="FlyingPath/FlyingFollowPath/Daddy" index="0"]
 texture = ExtResource("8_mi8c8")

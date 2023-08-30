@@ -9,37 +9,49 @@ var path_follow
 
 
 var reached_end = false
-var reached_fyling_end = false
-var start_anim = false
+var reached_flying_end = false
+var startAnimationEnded = false
+var walkingStarted = false
 # Called when the node enters the scene tree for the first time.
 
 
 func _ready():
 	print(new_parent)
-	if !start_anim and !reached_fyling_end:
+	if !startAnimationEnded and !reached_flying_end:
 		_animation_player.play("Bat")
 	
 func _physics_process(delta):
-	if reached_fyling_end and !start_anim:
+	#FLYING
+	if reached_flying_end and !startAnimationEnded:
 		_animation_player.play("Transformation")
 		await _animation_player.animation_finished
-		start_anim = true
+		startAnimationEnded = true
 		get_parent().remove_child(self)
 		new_parent.add_child(self)
 		path_follow = get_parent()
+		walkingStarted = true
+
+	if !reached_flying_end:
+		flying_path.set_progress(flying_path.get_progress() + _speed * delta)
+		
+	if flying_path.get_progress_ratio() == 1:
+		reached_flying_end = true
+		
+	#WALKING
+	if walkingStarted:
+		path_follow.set_progress(0)
+		walkingStarted = false
 	
-	if !reached_end and start_anim:
+	if !reached_end and startAnimationEnded:
 		path_follow.set_progress(path_follow.get_progress() + _speed * delta)
 		_animation_player.play("Walking")
 		if path_follow.get_progress_ratio() == 1: 
 			reached_path_end.emit()
 			reached_end = true
-			return
-	elif start_anim:
+		return
+			
+	if reached_end and startAnimationEnded:
 		_animation_player.play("Idle")
-	elif !reached_fyling_end:
-		flying_path.set_progress(flying_path.get_progress() + _speed * delta)
-	if flying_path.get_progress_ratio() == 1:
-		reached_fyling_end = true
+		return
 
 signal reached_path_end

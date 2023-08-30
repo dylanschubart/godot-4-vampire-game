@@ -14,9 +14,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _left = $LeftPoint
 @onready var _right = $RightPoint
 
-#timer to float
-@onready var _floatTimer = $FloatTimer
-
 #Player to be carried by
 @onready var _playerHoldPos = $"../Player/HoldPosition"
 @onready var _player = $"../Player"

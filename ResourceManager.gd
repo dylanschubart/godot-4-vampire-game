@@ -35,9 +35,17 @@ func saveHub(player, daddyPath, door):
 func loadHub(player, daddyPath, door):
 	if hubPlayerPosition == null: return
 		
+	var daddyNode = get_node("/root/World/FlyingPath/FlyingFollowPath/Daddy")
+		
+	#player
 	player.global_position = hubPlayerPosition
+	#remove daddy from flight and add to walkpath
+	daddyNode.get_parent().remove_child(daddyNode)
+	daddyPath.add_child(daddyNode)
 	daddyPath.set_progress(hubDaddyProgress)
-	daddyPath.get_node('Daddy').reached_end = true
+	daddyNode.reached_end = true
+	daddyNode.startAnimationEnded = true
+	
 	
 	for openedDoor in hubOpenedDoors:
 		for item in door:

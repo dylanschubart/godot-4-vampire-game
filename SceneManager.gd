@@ -22,7 +22,6 @@ func changeSceneWithTransition(scenePath, is_level):
 		get_node("SpiralTransition/AnimationPlayer").play("Spiral")
 		await get_node("AnimationPlayer").animation_finished
 		goto_scene(scenePath)
-		playerCamera.make_current()
 		get_node("AnimationPlayer").play("TransOut")
 		await get_node("AnimationPlayer").animation_finished
 		get_node("CanvasLayer/ColorRect").hide()
