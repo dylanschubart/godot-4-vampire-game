@@ -1,20 +1,33 @@
 [gd_scene load_steps=4 format=3 uid="uid://h7umrqwm0d3o"]
 
 [ext_resource type="Script" path="res://PlayerHealthUI.gd" id="1_n6ne4"]
-[ext_resource type="Texture2D" uid="uid://scdh8a1kgf15" path="res://Assets/Player/MareNew-HP_Empty.png" id="2_7fev3"]
-[ext_resource type="Texture2D" uid="uid://bffsst4nt8b16" path="res://Assets/Player/MareNew-HP_Full.png" id="3_djoep"]
+[ext_resource type="Texture2D" uid="uid://b0yoefdc1md35" path="res://Assets/UI/HealthBar.png" id="2_mgrx7"]
+[ext_resource type="Texture2D" uid="uid://b5x3bxe03wyvu" path="res://Assets/UI/HealthBarFilled.png" id="3_axyad"]
 
 [node name="PlayerHealthUI" type="CanvasLayer"]
 script = ExtResource("1_n6ne4")
 
 [node name="HealthUIEmpty" type="TextureRect" parent="."]
-offset_right = 48.0
-offset_bottom = 24.0
-texture = ExtResource("2_7fev3")
+offset_top = 1.0
+offset_right = 10.0
+offset_bottom = 46.0
+texture = ExtResource("2_mgrx7")
 stretch_mode = 1
 
-[node name="HealthUIFull" type="TextureRect" parent="."]
-offset_right = 48.0
-offset_bottom = 24.0
-texture = ExtResource("3_djoep")
-stretch_mode = 1
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthUIEmpty"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -38.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 6.0
+value = 3.0
+fill_mode = 3
+texture_progress = ExtResource("3_axyad")

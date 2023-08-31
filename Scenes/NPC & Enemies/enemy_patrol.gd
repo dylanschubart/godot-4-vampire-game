@@ -35,8 +35,11 @@ var ground = true
 
 func _physics_process(delta):
 		# Add the gravity.
-	if not is_on_floor():
+	if dead and ground:
 		velocity.y += gravity * delta
+		velocity.x = 0
+		#perform the move	
+		move_and_slide();
 		
 	if !dead:
 		move()
@@ -62,6 +65,8 @@ func _physics_process(delta):
 		_sprite.set_vframes(1)
 		_sprite.set_frame(6)
 		self.position = _player.position
+		
+		
 
 	
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://scdh8a1kgf15"
-path="res://.godot/imported/MareNew-HP_Empty.png-87fb868dc291b07f60bf711e6c664a57.ctex"
+uid="uid://b5x3bxe03wyvu"
+path="res://.godot/imported/HealthBarFilled.png-9a301dc42ba16c2d9eec5ca522bd1079.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Player/MareNew-HP_Empty.png"
-dest_files=["res://.godot/imported/MareNew-HP_Empty.png-87fb868dc291b07f60bf711e6c664a57.ctex"]
+source_file="res://Assets/UI/HealthBarFilled.png"
+dest_files=["res://.godot/imported/HealthBarFilled.png-9a301dc42ba16c2d9eec5ca522bd1079.ctex"]
 
 [params]
 

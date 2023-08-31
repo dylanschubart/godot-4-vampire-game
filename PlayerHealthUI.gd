@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-var max_value = 3
-var current_value = 3
 @onready var _player = $".."
-@onready var _healthFull = $HealthUIFull
+@onready var _progressBar = $HealthUIEmpty/TextureProgressBar
+var current_value = 3
+var max_value = 6
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,6 +18,6 @@ func change_texture(value):
 	current_value = value
 	if current_value > 0:
 		if current_value <= max_value:
-			_healthFull.size.x = current_value * 16
+			_progressBar.value = current_value
 	elif current_value <= 0:
-		_healthFull.visible = false
+		_progressBar.visible = false
