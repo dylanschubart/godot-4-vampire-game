@@ -37,6 +37,17 @@ func changeSceneWithTransition(scenePath, is_level):
 		get_node("CanvasLayer/ColorRect").hide()
 	
 
+func reloadCurrentScene():
+	var reloadScene = get_tree().root.get_child(get_tree().root.get_child_count() - 1).get_scene_file_path()
+	get_node("CanvasLayer/ColorRect").show()
+	get_node("AnimationPlayer").play("TransIn")
+	await get_node("AnimationPlayer").animation_finished
+	goto_scene(reloadScene)
+	
+	get_node("AnimationPlayer").play("TransOut")
+	await get_node("AnimationPlayer").animation_finished
+	get_node("CanvasLayer/ColorRect").hide()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_node("CanvasLayer/ColorRect").hide()

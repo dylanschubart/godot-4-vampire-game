@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://cotvapss3xvi"]
+[gd_scene load_steps=19 format=3 uid="uid://cotvapss3xvi"]
 
 [ext_resource type="Texture2D" uid="uid://oho6uwwsw2a4" path="res://Assets/Environment/dungeon/Hub_Background.png" id="1_o0e5a"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="1_oavew"]
 [ext_resource type="Texture2D" uid="uid://gk6xgs6ybjst" path="res://Assets/Environment/dungeon/Hub_Foreground.png" id="2_btgch"]
 [ext_resource type="Texture2D" uid="uid://maa28ki6ngm7" path="res://Assets/Environment/dungeon/DoorRightForeground.png" id="3_ipaq6"]
 [ext_resource type="PackedScene" uid="uid://b5mrbp81j7btc" path="res://Scenes/Objects/door.tscn" id="3_pwwuf"]
+[ext_resource type="Shader" path="res://Scenes/Objects/Outline.gdshader" id="5_0f8i4"]
 [ext_resource type="PackedScene" uid="uid://bo7rlfhfey3gv" path="res://Scenes/NPC & Enemies/Daddy.tscn" id="6_cke6f"]
 [ext_resource type="Script" path="res://Scenes/NPC & Enemies/Daddy.gd" id="7_wj5h4"]
 [ext_resource type="Texture2D" uid="uid://cw3x3xn1gqvsn" path="res://Assets/Environment/dungeon/Pillar.png" id="8_kse4c"]
@@ -19,6 +20,15 @@ size = Vector2(485, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gseom"]
 size = Vector2(20, 234)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7whfh"]
+resource_local_to_scene = true
+shader = ExtResource("5_0f8i4")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = false
 
 [sub_resource type="Curve2D" id="Curve2D_00nt3"]
 _data = {
@@ -89,6 +99,7 @@ debug_color = Color(0.682353, 0.376471, 0.847059, 0.419608)
 position = Vector2(164, -27)
 
 [node name="DoorTexture" parent="Door" index="1"]
+material = SubResource("ShaderMaterial_7whfh")
 frame = 0
 
 [node name="Player" parent="." instance=ExtResource("1_oavew")]

@@ -1,10 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://b5mrbp81j7btc"]
+[gd_scene load_steps=9 format=3 uid="uid://b5mrbp81j7btc"]
 
 [ext_resource type="Texture2D" uid="uid://dpy1o2ja228h4" path="res://Assets/Environment/dungeon/Door.png" id="1_54onv"]
 [ext_resource type="Script" path="res://Scenes/Objects/door.gd" id="1_xo5nh"]
+[ext_resource type="Shader" path="res://Scenes/Objects/Outline.gdshader" id="3_nop07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_873dw"]
 size = Vector2(52, 71)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_enb7f"]
+resource_local_to_scene = true
+shader = ExtResource("3_nop07")
+shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = false
 
 [sub_resource type="Animation" id="Animation_hvok1"]
 resource_name = "Open"
@@ -78,6 +88,7 @@ disabled = true
 
 [node name="DoorTexture" type="Sprite2D" parent="."]
 z_index = -1
+material = SubResource("ShaderMaterial_enb7f")
 position = Vector2(0, -41.25)
 scale = Vector2(1, 0.993976)
 texture = ExtResource("1_54onv")
@@ -90,4 +101,6 @@ libraries = {
 "": SubResource("AnimationLibrary_6eotu")
 }
 
+[connection signal="area_entered" from="InteractableZone" to="InteractableZone" method="_on_area_entered"]
+[connection signal="area_exited" from="InteractableZone" to="InteractableZone" method="_on_area_exited"]
 [connection signal="animation_finished" from="DoorTexture/AnimationPlayer" to="InteractableZone" method="_on_animation_player_animation_finished"]

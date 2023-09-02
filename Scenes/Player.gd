@@ -43,6 +43,7 @@ var carrying = false
 var levelEnding = false
 var returning = false
 var levelEnter = false
+var dead = false
 
 func _ready():
 	get_node("Camera2D").make_current()
@@ -50,12 +51,16 @@ func _ready():
 
 func _physics_process(delta):
 	#changing levels > play sit animation & nothing else
-	if sceneChange: 
+	if sceneChange or dead: 
 		if levelEnding: 
 			_animation_player.play("Grab_Chalice_Idle")
 		return
 		
 	if returning:
+		if _animation_player.current_animation != "Sit":
+			_animation_player.set_current_animation("Sit")
+			_animation_player.seek(_animation_player.get_current_animation_length(), true)
+		await SceneManager.get_node("AnimationPlayer").animation_finished
 		_animation_player.play_backwards("Sit")
 		return
 	
@@ -180,7 +185,10 @@ func attack():
 			attacking = true
 			readyForAttack = false
 			_attackCooldown.start()
-		
+			
+func killedEnemy():
+	health += 1
+	emit_signal("health_changed", health)
 
 #AnimationPlayer Signal, if an animation finishes it sends a signal to this linked connection and we can check if specific animations have ended
 func _on_animation_player_animation_finished(anim_name):
@@ -237,6 +245,11 @@ func _on_interaction_area_area_entered(area):
 		if area.is_in_group('Hazards') or area.is_in_group('Enemy_Damage'):
 			health -= 1
 			emit_signal("health_changed", health)
+			if health == 0:
+				dead = true
+				_animation_player.play("Death")
+				SceneManager.reloadCurrentScene()
+				return
 			_invincibilityTimer.start()
 			hit = true
 			knockback()

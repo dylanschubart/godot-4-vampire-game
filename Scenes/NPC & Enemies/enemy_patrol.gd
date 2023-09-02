@@ -65,10 +65,6 @@ func _physics_process(delta):
 		_sprite.set_vframes(1)
 		_sprite.set_frame(6)
 		self.position = _player.position
-		
-		
-
-	
 
 func move():
 	if moving_left:
@@ -106,14 +102,21 @@ func interact():
 		z_index = 0
 		for area in _areaHit.get_overlapping_areas():
 			if area.is_in_group("Sacrifice_Area"):
-				get_parent().remove_child(self)
+				sacrifice()
 	
 	return "enemy"
 
+func sacrifice():
+	_player.killedEnemy()
+	get_parent().remove_child(self)
 
 func _on_area_detection_area_entered(area):
 	if area.is_in_group("Player"):
 		detected = true;
+		
+	if !carried:
+		if area.is_in_group("Sacrifice_Area"):
+			call_deferred("sacrifice")
 
 
 func _on_area_detection_area_exited(area):
