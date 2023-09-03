@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b0v6flub74a6e"]
+[gd_scene load_steps=3 format=3 uid="uid://b0v6flub74a6e"]
 
+[ext_resource type="Script" path="res://Scenes/UI/sacrificed_progress.gd" id="1_3vahv"]
 [ext_resource type="FontFile" uid="uid://cmg6w566iutjl" path="res://Assets/Font/Alkhemikal.ttf" id="1_vetwm"]
 
 [node name="SacrificedProgress" type="CanvasLayer"]
+script = ExtResource("1_3vahv")
 
 [node name="Title" type="Label" parent="."]
 anchors_preset = 1

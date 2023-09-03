@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://8qrh1m73njfy"]
+[gd_scene load_steps=13 format=3 uid="uid://8qrh1m73njfy"]
 
 [ext_resource type="Script" path="res://Scenes/NPC & Enemies/enemy_patrol.gd" id="1_w7fem"]
 [ext_resource type="Texture2D" uid="uid://c13xm2isd8c2q" path="res://Assets/NPC/Enemies/Crawler-Walking.png" id="2_6fcww"]
 [ext_resource type="Shader" path="res://Scenes/Objects/Outline.gdshader" id="2_akt2o"]
 [ext_resource type="Texture2D" uid="uid://duiwsnhwu8dwd" path="res://Assets/NPC/Enemies/Crawler-Death.png" id="2_jtq3h"]
+[ext_resource type="Texture2D" uid="uid://c0f0ypf7vbdd2" path="res://Assets/UI/ParticleShape.png" id="5_x5lgo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0gyw"]
 size = Vector2(26, 29)
@@ -129,7 +130,7 @@ libraries = {
 "": SubResource("AnimationLibrary_g3no3")
 }
 
-[node name="AreaHit" type="Area2D" parent="." groups=["Enemy_Damage", "Sacrificable"]]
+[node name="AreaHit" type="Area2D" parent="." groups=["Enemy_Damage"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHit"]
 position = Vector2(1, -14.5)
@@ -146,6 +147,24 @@ shape = SubResource("RectangleShape2D_riwal")
 [node name="LeftPoint" type="Marker2D" parent="."]
 
 [node name="RightPoint" type="Marker2D" parent="."]
+
+[node name="BloodSplash" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 128
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.25
+fixed_fps = 30
+texture = ExtResource("5_x5lgo")
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector2(0, -1)
+gravity = Vector2(0, 25)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+scale_amount_min = 0.02
+scale_amount_max = 0.02
+color = Color(1, 0, 0, 1)
 
 [connection signal="area_entered" from="AreaHit" to="." method="_on_area_hit_area_entered"]
 [connection signal="area_exited" from="AreaHit" to="." method="_on_area_hit_area_exited"]

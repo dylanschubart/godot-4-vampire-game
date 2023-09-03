@@ -23,6 +23,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var health = 3
 @onready var _invincibilityTimer = $InvincibilityTimer
 @onready var labelE = $E
+@onready var _darkness = $Darkness
 var hit = false
 var flickerTime = 1.5
 
@@ -190,6 +191,7 @@ func attack():
 func killedEnemy():
 	health += 1
 	emit_signal("health_changed", health)
+	_darkness.color.a += 0.2
 	
 func startE():
 	labelE.visible = true

@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://rvnmboidkld5" path="res://Assets/Player/MareNew-PickUP.png" id="14_c0w58"]
 [ext_resource type="Texture2D" uid="uid://bp570wfmiu6ar" path="res://Assets/Player/MareNew-GrabCalice.png" id="15_bf0rb"]
 [ext_resource type="FontFile" uid="uid://cmg6w566iutjl" path="res://Assets/Font/Alkhemikal.ttf" id="17_xuhno"]
-[ext_resource type="PackedScene" uid="uid://b0v6flub74a6e" path="res://Scenes/Ui/sacrificed_progress.tscn" id="18_qiat5"]
+[ext_resource type="PackedScene" uid="uid://b0v6flub74a6e" path="res://Scenes/UI/sacrificed_progress.tscn" id="18_qiat5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb8a3"]
 radius = 5.0
@@ -776,6 +776,11 @@ theme_override_font_sizes/font_size = 30
 text = "E"
 
 [node name="SacrificedProgress" parent="." instance=ExtResource("18_qiat5")]
+
+[node name="Darkness" type="Polygon2D" parent="."]
+z_index = 10
+color = Color(0, 0.00784314, 0, 0)
+polygon = PackedVector2Array(-385, -312, -386, 203, 341, 210, 363, -337)
 
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
