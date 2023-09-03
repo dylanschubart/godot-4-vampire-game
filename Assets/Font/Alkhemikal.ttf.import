@@ -14,10 +14,10 @@ dest_files=["res://.godot/imported/Alkhemikal.ttf-c9a741b9b03cf7969a82d45a09cd35
 
 Rendering=null
 antialiasing=0
-generate_mipmaps=false
+generate_mipmaps=true
 multichannel_signed_distance_field=true
-msdf_pixel_range=8
-msdf_size=48
+msdf_pixel_range=16
+msdf_size=128
 allow_system_fallback=true
 force_autohinter=false
 hinting=1
@@ -26,7 +26,7 @@ oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=false
+compress=true
 preload=[{
 "chars": [],
 "glyphs": [],
