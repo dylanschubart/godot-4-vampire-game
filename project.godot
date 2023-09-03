@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://SceneManager.tscn"
 ResourceManager="*res://ResourceManager.tscn"
+DialogueManager="*res://Scenes/Ui/DialogueManager.gd"
 
 [display]
 

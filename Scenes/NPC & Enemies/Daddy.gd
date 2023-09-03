@@ -12,6 +12,7 @@ var reached_end = false
 var reached_flying_end = false
 var startAnimationEnded = false
 var walkingStarted = false
+var dialogueIsPlaying = false
 # Called when the node enters the scene tree for the first time.
 
 
@@ -45,7 +46,11 @@ func _physics_process(delta):
 	if !reached_end and startAnimationEnded:
 		path_follow.set_progress(path_follow.get_progress() + _speed * delta)
 		_animation_player.play("Walking")
-		if path_follow.get_progress_ratio() == 1: 
+		if !dialogueIsPlaying and !path_follow.get_progress_ratio() == 1:
+			dialogueIsPlaying = true
+			DialogueManager.showDialogueBox("res://Assets/Dialogue/StartDialogue.json")
+		
+		if path_follow.get_progress_ratio() == 1 and !dialogueIsPlaying : 
 			reached_path_end.emit()
 			reached_end = true
 		return
