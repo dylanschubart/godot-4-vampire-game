@@ -24,6 +24,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var _invincibilityTimer = $InvincibilityTimer
 @onready var labelE = $E
 @onready var _darkness = $Darkness
+var maxdarkness = 0
 var hit = false
 var flickerTime = 1.5
 
@@ -52,8 +53,14 @@ func _ready():
 	
 
 func _physics_process(delta):
+	if _darkness.color.a < maxdarkness:
+		_darkness.color.a += (delta / 2)
+	
 	#changing levels > play sit animation & nothing else
 	if sceneChange or dead: 
+		velocity.y += gravity * delta
+		velocity.x = 0
+		move_and_slide()
 		if levelEnding: 
 			_animation_player.play("Grab_Chalice_Idle")
 		return
@@ -191,7 +198,7 @@ func attack():
 func killedEnemy():
 	health += 1
 	emit_signal("health_changed", health)
-	_darkness.color.a += 0.2
+	maxdarkness += 0.2
 	
 func startE():
 	labelE.visible = true
@@ -263,6 +270,12 @@ func _on_interaction_area_area_entered(area):
 			_invincibilityTimer.start()
 			hit = true
 			knockback()
+	if area.is_in_group('NightmareGod') and !levelEnding and !sceneChange:
+		health = 0
+		emit_signal("health_changed", health)
+		dead = true
+		_animation_player.play("Death")
+		SceneManager.reloadCurrentScene()
 
 
 func _on_attack_cooldown_timeout():

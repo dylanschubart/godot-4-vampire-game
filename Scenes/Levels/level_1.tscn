@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://roc5s3lm45t8"]
+[gd_scene load_steps=17 format=3 uid="uid://roc5s3lm45t8"]
 
 [ext_resource type="Texture2D" uid="uid://hnpwqy6s3dik" path="res://Assets/Environment/Level1/TilesetLv1_8x8.png" id="1_aijhc"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="2_0q7id"]
 [ext_resource type="Texture2D" uid="uid://buhkdyqxt2hoi" path="res://Assets/Environment/Level1/ForegroundTileset.png" id="2_jv1ts"]
 [ext_resource type="PackedScene" uid="uid://8qrh1m73njfy" path="res://Scenes/NPC & Enemies/enemy_patrol.tscn" id="3_7wg0e"]
 [ext_resource type="PackedScene" uid="uid://d3ptj1csoxvd1" path="res://Scenes/Hazard/Spikes.tscn" id="3_qmn5n"]
+[ext_resource type="Script" path="res://PlayerCamera.gd" id="4_f61ys"]
 [ext_resource type="Texture2D" uid="uid://cv1j05sxtsul2" path="res://Assets/Environment/Paralax/ParallaxBehind.png" id="5_p4ftj"]
 [ext_resource type="PackedScene" uid="uid://4ogxdks6rmn2" path="res://Scenes/Objects/level_end.tscn" id="7_x2a75"]
 [ext_resource type="PackedScene" uid="uid://1axatpmf3npj" path="res://Scenes/Objects/altar.tscn" id="8_j4swh"]
+[ext_resource type="Shader" path="res://Scenes/Objects/Outline.gdshader" id="9_athkn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buy6l"]
 resource_name = "Terrain"
@@ -568,6 +570,33 @@ terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
 sources/0 = SubResource("TileSetAtlasSource_buy6l")
 sources/1 = SubResource("TileSetAtlasSource_8alhg")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3n60g"]
+resource_local_to_scene = true
+shader = ExtResource("9_athkn")
+shader_parameter/color = Color(0.54902, 0, 0, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vdnaj"]
+resource_local_to_scene = true
+shader = ExtResource("9_athkn")
+shader_parameter/color = Color(0.54902, 0, 0, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hp4eg"]
+resource_local_to_scene = true
+shader = ExtResource("9_athkn")
+shader_parameter/color = Color(0.54902, 0, 0, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
 [node name="Level1" type="TileMap"]
 tile_set = SubResource("TileSet_6pw1c")
 format = 2
@@ -587,6 +616,7 @@ position = Vector2(-420, 7)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(1.7818, -48.9994)
+script = ExtResource("4_f61ys")
 
 [node name="Spikes" parent="." instance=ExtResource("3_qmn5n")]
 position = Vector2(-89, 62)
@@ -611,6 +641,9 @@ position = Vector2(847, 52)
 
 [node name="Enemy_Patrol" parent="." instance=ExtResource("3_7wg0e")]
 
+[node name="Sprite2D" parent="Enemy_Patrol" index="1"]
+material = SubResource("ShaderMaterial_3n60g")
+
 [node name="LeftPoint" parent="Enemy_Patrol" index="4"]
 position = Vector2(-64, 1)
 
@@ -620,6 +653,9 @@ position = Vector2(143, 0)
 [node name="Enemy_Patrol2" parent="." instance=ExtResource("3_7wg0e")]
 position = Vector2(303, 24)
 
+[node name="Sprite2D" parent="Enemy_Patrol2" index="1"]
+material = SubResource("ShaderMaterial_vdnaj")
+
 [node name="LeftPoint" parent="Enemy_Patrol2" index="4"]
 position = Vector2(-141, -4)
 
@@ -628,6 +664,9 @@ position = Vector2(289, -9)
 
 [node name="Enemy_Patrol3" parent="." instance=ExtResource("3_7wg0e")]
 position = Vector2(718, 25)
+
+[node name="Sprite2D" parent="Enemy_Patrol3" index="1"]
+material = SubResource("ShaderMaterial_hp4eg")
 
 [node name="LeftPoint" parent="Enemy_Patrol3" index="4"]
 position = Vector2(-42, -2)
