@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=3 uid="uid://dgxknrs4tke8w"]
+
+[ext_resource type="Texture2D" uid="uid://befbeanboip4v" path="res://Assets/UI/Dialogue.png" id="1_26edw"]
+[ext_resource type="FontFile" uid="uid://cmg6w566iutjl" path="res://Assets/Font/Alkhemikal.ttf" id="2_ev07j"]
+[ext_resource type="Script" path="res://Scenes/Ui/Dialog Box.gd" id="2_nmbxj"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1nxho"]
+font = ExtResource("2_ev07j")
+font_size = 8
+
+[sub_resource type="Animation" id="Animation_h2c2m"]
+resource_name = "Indicator"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.152941), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7mntw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.152941)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x2c63"]
+_data = {
+"Indicator": SubResource("Animation_h2c2m"),
+"RESET": SubResource("Animation_7mntw")
+}
+
+[node name="DialogueBox" type="CanvasLayer"]
+
+[node name="DialogueSprite" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_26edw")
+script = ExtResource("2_nmbxj")
+dialogPath = "res://Assets/Dialogue/StartDialogue.json"
+
+[node name="Text" type="RichTextLabel" parent="DialogueSprite"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 133.0
+offset_right = 281.0
+offset_bottom = 169.0
+theme_override_fonts/normal_font = ExtResource("2_ev07j")
+theme_override_font_sizes/normal_font_size = 12
+bbcode_enabled = true
+text = "sfsefewfefsfsefsef"
+
+[node name="Timer" type="Timer" parent="DialogueSprite"]
+
+[node name="Indicator" type="Label" parent="DialogueSprite"]
+modulate = Color(1, 1, 1, 0.152941)
+layout_mode = 0
+offset_left = 218.0
+offset_top = 158.0
+offset_right = 282.0
+offset_bottom = 169.0
+text = "press E to continue..."
+label_settings = SubResource("LabelSettings_1nxho")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueSprite/Indicator"]
+libraries = {
+"": SubResource("AnimationLibrary_x2c63")
+}
