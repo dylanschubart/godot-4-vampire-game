@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://cotvapss3xvi"]
+[gd_scene load_steps=20 format=3 uid="uid://cotvapss3xvi"]
 
+[ext_resource type="PackedScene" uid="uid://dgxknrs4tke8w" path="res://Scenes/Ui/dialogue_box.tscn" id="1_bsj6v"]
 [ext_resource type="Texture2D" uid="uid://oho6uwwsw2a4" path="res://Assets/Environment/dungeon/Hub_Background.png" id="1_o0e5a"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="1_oavew"]
 [ext_resource type="Texture2D" uid="uid://gk6xgs6ybjst" path="res://Assets/Environment/dungeon/Hub_Foreground.png" id="2_btgch"]
@@ -46,6 +47,8 @@ point_count = 9
 size = Vector2(21, 91)
 
 [node name="World" type="Node2D"]
+
+[node name="DialogueBox" parent="." instance=ExtResource("1_bsj6v")]
 
 [node name="HubBackground" type="Sprite2D" parent="."]
 z_index = -2
