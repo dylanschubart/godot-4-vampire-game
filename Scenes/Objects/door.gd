@@ -24,8 +24,10 @@ func _on_daddy_reached_path_end():
 
 func _on_area_entered(area):
 	if area.is_in_group("Player"):
-		_door.material.set("shader_param/width", 2.5)
+		_door.material.set_shader_parameter("width", 2.5)
+		area.owner.startE()
 
 func _on_area_exited(area):
 	if area.is_in_group("Player"):
-		_door.material.set("shader_param/width", 0)
+		_door.material.set_shader_parameter("width", 0)
+		area.owner.endE()

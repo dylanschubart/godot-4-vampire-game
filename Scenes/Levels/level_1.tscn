@@ -590,6 +590,7 @@ position = Vector2(-64, 1)
 position = Vector2(143, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_0q7id")]
+z_index = 1
 position = Vector2(-404, -10)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -610,7 +611,6 @@ texture = ExtResource("5_p4ftj")
 centered = false
 
 [node name="LevelEnd" parent="." instance=ExtResource("7_x2a75")]
-z_index = -1
 position = Vector2(647, 28)
 
 [node name="Altar" parent="." instance=ExtResource("8_j4swh")]

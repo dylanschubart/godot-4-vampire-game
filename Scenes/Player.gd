@@ -22,6 +22,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #HUD element & all info
 @export var health = 3
 @onready var _invincibilityTimer = $InvincibilityTimer
+@onready var labelE = $E
 var hit = false
 var flickerTime = 1.5
 
@@ -189,6 +190,13 @@ func attack():
 func killedEnemy():
 	health += 1
 	emit_signal("health_changed", health)
+	
+func startE():
+	labelE.visible = true
+	
+func endE():
+	labelE.visible = false
+	
 
 #AnimationPlayer Signal, if an animation finishes it sends a signal to this linked connection and we can check if specific animations have ended
 func _on_animation_player_animation_finished(anim_name):

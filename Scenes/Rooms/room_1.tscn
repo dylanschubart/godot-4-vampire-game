@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://wyw86olpl743"]
+[gd_scene load_steps=18 format=3 uid="uid://wyw86olpl743"]
 
 [ext_resource type="Texture2D" uid="uid://chmodkyx5blo6" path="res://Assets/Environment/dungeon/Level1_Room.png" id="1_ivcty"]
 [ext_resource type="Texture2D" uid="uid://cn0uadud44bu2" path="res://Assets/Environment/dungeon/HanginBody.png" id="2_mm0dh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="4_wlvn8"]
 [ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/Objects/LevelSelect.tscn" id="5_kw00c"]
 [ext_resource type="PackedScene" uid="uid://b5mrbp81j7btc" path="res://Scenes/Objects/door.tscn" id="6_0dr3b"]
+[ext_resource type="Shader" path="res://Scenes/Objects/Outline.gdshader" id="7_ghfle"]
 
 [sub_resource type="Animation" id="Animation_yyby3"]
 resource_name = "Idle"
@@ -78,6 +79,15 @@ size = Vector2(20, 234)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_efrds"]
 size = Vector2(59, 9)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_inpu8"]
+resource_local_to_scene = true
+shader = ExtResource("7_ghfle")
+shader_parameter/color = Color(0.784314, 0.784314, 0.784314, 1)
+shader_parameter/width = 0.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = false
+
 [node name="Room1" type="Node2D"]
 
 [node name="Level1Room" type="Sprite2D" parent="."]
@@ -96,6 +106,7 @@ libraries = {
 }
 
 [node name="BodyLv1" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(73, -19)
 texture = ExtResource("3_fto4p")
 hframes = 2
@@ -139,7 +150,7 @@ shape = SubResource("RectangleShape2D_1yb6a")
 debug_color = Color(0.682353, 0.376471, 0.847059, 0.419608)
 
 [node name="LevelSelect" parent="." instance=ExtResource("5_kw00c")]
-position = Vector2(73, -17)
+position = Vector2(72, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelSelect"]
 position = Vector2(-0.5, 3.5)
@@ -155,6 +166,9 @@ doorNumber = 0
 
 [node name="CollisionShape2D" parent="Door/InteractableZone" index="0"]
 disabled = false
+
+[node name="DoorTexture" parent="Door" index="1"]
+material = SubResource("ShaderMaterial_inpu8")
 
 [node name="AnimationPlayer" parent="Door/DoorTexture" index="0"]
 reset_on_save = true

@@ -97,9 +97,13 @@ func getHit():
 func interact():
 	carried = !carried
 	if carried:
-		z_index = 1
+		z_index = 2
+		_sprite.material.set_shader_parameter("width", 0)
+		_player.endE()
 	else:
 		z_index = 0
+		_sprite.material.set_shader_parameter("width", 1.5)
+		_player.startE()
 		for area in _areaHit.get_overlapping_areas():
 			if area.is_in_group("Sacrifice_Area"):
 				sacrifice()
@@ -122,3 +126,15 @@ func _on_area_detection_area_entered(area):
 func _on_area_detection_area_exited(area):
 	if area.is_in_group("Player"):
 		detected = false;
+
+
+func _on_area_hit_area_entered(area):
+	if area.is_in_group("Player") and dead:
+		_sprite.material.set_shader_parameter("width", 1.5)
+		area.owner.startE()
+
+
+func _on_area_hit_area_exited(area):
+	if area.is_in_group("Player") and dead:
+		_sprite.material.set_shader_parameter("width", 0)
+		area.owner.endE()

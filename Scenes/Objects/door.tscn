@@ -10,7 +10,7 @@ size = Vector2(52, 71)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_enb7f"]
 resource_local_to_scene = true
 shader = ExtResource("3_nop07")
-shader_parameter/color = Color(1, 0, 0, 1)
+shader_parameter/color = Color(0.784314, 0.784314, 0.784314, 1)
 shader_parameter/width = 0.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
