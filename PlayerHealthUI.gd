@@ -10,6 +10,7 @@ func _ready():
 	if _player != null:
 		if _player.health > max_value:
 			visible = false
+			_player.get_node("SacrificedProgress").visible = false
 		else:
 			_player.health_changed.connect(change_texture)
 		
@@ -21,3 +22,4 @@ func change_texture(value):
 			_progressBar.value = current_value
 	elif current_value <= 0:
 		_progressBar.visible = false
+		_player.get_node("SacrificedProgress").visible = false

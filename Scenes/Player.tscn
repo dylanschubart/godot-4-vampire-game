@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://dmno3a63ki8kl"]
+[gd_scene load_steps=41 format=3 uid="uid://dmno3a63ki8kl"]
 
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_jus1k"]
 [ext_resource type="Texture2D" uid="uid://y7e8v0psr20y" path="res://Assets/Player/MareNew-AttackUP.png" id="2_g4qmr"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://d366xvdagk5pr" path="res://Assets/Player/MareDeath.png" id="13_h815u"]
 [ext_resource type="Texture2D" uid="uid://rvnmboidkld5" path="res://Assets/Player/MareNew-PickUP.png" id="14_c0w58"]
 [ext_resource type="Texture2D" uid="uid://bp570wfmiu6ar" path="res://Assets/Player/MareNew-GrabCalice.png" id="15_bf0rb"]
+[ext_resource type="FontFile" uid="uid://cmg6w566iutjl" path="res://Assets/Font/Alkhemikal.ttf" id="17_xuhno"]
+[ext_resource type="PackedScene" uid="uid://b0v6flub74a6e" path="res://Scenes/UI/sacrificed_progress.tscn" id="18_qiat5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb8a3"]
 radius = 5.0
@@ -764,12 +766,16 @@ position = Vector2(8, -7)
 
 [node name="E" type="Label" parent="."]
 visible = false
-offset_left = -2.0
-offset_top = -52.0
-offset_right = 38.0
-offset_bottom = -26.0
+offset_left = -5.0
+offset_top = -57.0
+offset_right = 45.0
+offset_bottom = -23.0
 scale = Vector2(0.807921, 0.737207)
+theme_override_fonts/font = ExtResource("17_xuhno")
+theme_override_font_sizes/font_size = 30
 text = "E"
+
+[node name="SacrificedProgress" parent="." instance=ExtResource("18_qiat5")]
 
 [connection signal="animation_finished" from="Sprite2D/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="area_entered" from="InteractionArea" to="." method="_on_interaction_area_area_entered"]
