@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c0f0ypf7vbdd2" path="res://Assets/UI/ParticleShape.png" id="5_x5lgo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t0gyw"]
-size = Vector2(26, 29)
+size = Vector2(26, 19)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dh5in"]
 resource_local_to_scene = true
@@ -106,7 +106,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whyub"]
-size = Vector2(26, 29)
+size = Vector2(27, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_riwal"]
 size = Vector2(22.6, 10.4)
@@ -116,7 +116,7 @@ collision_layer = 4
 script = ExtResource("1_w7fem")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -14.5)
+position = Vector2(1, -10.5)
 shape = SubResource("RectangleShape2D_t0gyw")
 debug_color = Color(0, 0.560784, 0.886275, 0.419608)
 
@@ -134,7 +134,7 @@ libraries = {
 [node name="AreaHit" type="Area2D" parent="." groups=["Enemy_Damage"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHit"]
-position = Vector2(1, -14.5)
+position = Vector2(2.5, -10)
 shape = SubResource("RectangleShape2D_whyub")
 debug_color = Color(0.694118, 0.211765, 0.180392, 0.419608)
 

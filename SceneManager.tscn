@@ -6,7 +6,7 @@
 
 [sub_resource type="Animation" id="Animation_usc6o"]
 resource_name = "LevelTransition"
-length = 31.0
+length = 25.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -26,7 +26,7 @@ tracks/1/path = NodePath("Camera2D:zoom")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(4.7, 10.3, 10.5, 17.2, 18.3, 20.6, 21.5, 23.6, 24.4, 26.4, 27.2, 29, 30.3),
+"times": PackedFloat32Array(4.7, 10.3, 10.5, 13.9, 15, 16.8, 17.8, 19.5, 20.4, 22.2, 22.9, 24.3, 25),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(10, 10), Vector2(1, 1), Vector2(1, 1), Vector2(1.20141, 1.20141), Vector2(1.20141, 1.20141), Vector2(1.60424, 1.60424), Vector2(1.60424, 1.60424), Vector2(2.58224, 2.58224), Vector2(2.58224, 2.58224), Vector2(4.06178, 4.06178), Vector2(4.06178, 4.06178), Vector2(9.795, 9.795)]
@@ -50,7 +50,7 @@ tracks/3/path = NodePath("Camera2D:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(17.2, 17.9, 18.4, 20.7, 21.6, 23.8, 24.5, 26.5, 27.3, 29.1, 30),
+"times": PackedFloat32Array(13.9, 14.6, 15.1, 16.8, 17.8, 19.5, 20.5, 22.2, 22.9, 24.4, 25),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(160, 90), Vector2(160, 86), Vector2(160, 101), Vector2(160, 97), Vector2(159, 102), Vector2(158, 98), Vector2(158, 102), Vector2(158, 95), Vector2(157, 108), Vector2(157, 104), Vector2(156, 111)]
@@ -62,7 +62,7 @@ tracks/4/path = NodePath("Camera2D:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(17.2, 17.9, 18.4, 20.7, 21.6, 23.8, 24.5, 26.5, 27.3, 29.1, 30),
+"times": PackedFloat32Array(13.9, 14.6, 15.1, 16.8, 17.8, 19.5, 20.6, 22.1, 22.9, 24.4, 25),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
@@ -250,12 +250,11 @@ libraries = {
 }
 
 [node name="CloseupPerson" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(160, 90)
 texture = ExtResource("2_hkiob")
 
 [node name="SpiralTransition" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
 position = Vector2(160, 90)
 texture = ExtResource("3_yld5x")
 hframes = 2

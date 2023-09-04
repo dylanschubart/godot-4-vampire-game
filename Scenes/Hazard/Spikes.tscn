@@ -1,19 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3ptj1csoxvd1"]
 
-[ext_resource type="Texture2D" uid="uid://dg3q7gva31x07" path="res://Assets/Environment/Hazards/Spikes.png" id="1_lagl0"]
+[ext_resource type="Texture2D" uid="uid://7y0cgnggc75l" path="res://Assets/Environment/Hazards/SpikesBottom.png" id="1_yi4fh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwim3"]
-size = Vector2(32, 32)
+size = Vector2(25.8386, 15.4892)
 
 [node name="Spikes" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
-texture = ExtResource("1_lagl0")
+texture = ExtResource("1_yi4fh")
 
 [node name="Area2D" type="Area2D" parent="." groups=["Hazards"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -16)
+position = Vector2(-0.169441, -7.74461)
 shape = SubResource("RectangleShape2D_fwim3")
 debug_color = Color(0, 0.552941, 0.909804, 0.419608)

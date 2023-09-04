@@ -25,6 +25,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var labelE = $E
 @onready var _darkness = $Darkness
 @onready var _settings = $settings
+
 var maxdarkness = 0
 var hit = false
 var flickerTime = 1.5
@@ -97,7 +98,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("Options"):
 			_settings.show()
-			_settings.get_node("ResolutionOptions").grab_focus()
+			_settings.get_node("Settings/ResolutionOptions").grab_focus()
 			get_tree().paused = true
 		
 	# Add the gravity.

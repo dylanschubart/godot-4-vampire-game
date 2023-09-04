@@ -47,7 +47,7 @@ func nextPhrase() -> void:
 	if phraseNum >= len(dialog):
 		var daddy = get_node("/root/World/WalkingPath/WalkingFollowPath/Daddy")
 		get_parent().hide()
-		daddy.dialogueIsPlaying = false
+		daddy.dialogueIsFinished = true
 		return
 	
 	finished = false
