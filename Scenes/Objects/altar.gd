@@ -9,6 +9,10 @@ var enemiesleft = true
 #spawn the nightmaregod on max kills
 var nightmare_god = preload("res://Scenes/NPC & Enemies/nightmare_god.tscn")
 
+func _ready():
+	Audio.get_node("BGHub").stop()
+	Audio.get_node("BGTitleScreen").stop()
+	Audio.get_node("BGLevel").play()
 
 func lastEnemyKilled():
 	enemiesleft = false

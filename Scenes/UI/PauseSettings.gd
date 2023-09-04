@@ -17,11 +17,13 @@ func _process(delta):
 	pass
 
 func _on_back_pressed():
+	Audio.get_node("button_click").play()
 	get_tree().paused = false
 	get_parent().hide()
 
 
 func _on_check_box_toggled(button_pressed):
+	Audio.get_node("button_click").play()
 	if button_pressed:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	if !button_pressed:
@@ -32,5 +34,6 @@ func AddResolutions():
 		_resolutionOptions.add_item(r)
 
 func _on_resolution_options_item_selected(index):
+	Audio.get_node("button_click").play()
 	var size = resolutions.get(_resolutionOptions.get_item_text(_resolutionOptions.get_selected_id()))
 	DisplayServer.window_set_size(size)

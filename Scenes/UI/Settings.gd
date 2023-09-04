@@ -3,7 +3,7 @@ extends Control
 @onready var _main_menu = $"../MainMenu"
 @onready var _optionsButton = $"../MainMenu/Options"
 @onready var _resolutionOptions = $ResolutionOptions
-@onready var buttonAudio = $"../Audio/button_click"
+
 var resolutions = {"1280x720":Vector2(1280,720),
 "1920x1080":Vector2(1920,1080),
 "2560x1440":Vector2(2560,1440),
@@ -19,14 +19,14 @@ func _process(delta):
 	pass
 
 func _on_back_pressed():
-	buttonAudio.play()
+	Audio.get_node("button_click").play()
 	_main_menu.show()
 	self.hide()
 	_optionsButton.grab_focus()
 
 
 func _on_check_box_toggled(button_pressed):
-	buttonAudio.play()
+	Audio.get_node("button_click").play()
 	if button_pressed:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	if !button_pressed:
@@ -43,8 +43,8 @@ func _on_resolution_options_item_selected(index):
 
 
 func _on_back_focus_entered():
-	buttonAudio.play()
+	Audio.get_node("button_click").play()
 
 
 func _on_back_mouse_entered():
-	buttonAudio.play()
+	Audio.get_node("button_click").play()
