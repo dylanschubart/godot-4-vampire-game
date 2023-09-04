@@ -230,9 +230,9 @@ libraries = {
 [node name="Title Blut" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
 offset_left = 90.0
-offset_top = 3.0
+offset_top = 10.0
 offset_right = 239.0
-offset_bottom = 79.0
+offset_bottom = 86.0
 theme_override_colors/font_color = Color(0.576471, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_b45ie")
 theme_override_font_sizes/font_size = 35

@@ -71,6 +71,7 @@ func _physics_process(delta):
 	if returning:
 		if _animation_player.current_animation != "Sit":
 			_animation_player.set_current_animation("Sit")
+			Audio.get_node("mare_breathing").play()
 			_animation_player.seek(_animation_player.get_current_animation_length(), true)
 		await SceneManager.get_node("AnimationPlayer").animation_finished
 		_animation_player.play_backwards("Sit")
@@ -147,8 +148,10 @@ func jump():
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		velocity.y = -JUMP_VELOCITY;
 		doubleJump = false
+		Audio.get_node("mare_jump").play()
 	elif Input.is_action_just_pressed("Jump") and !is_on_floor() and doubleJump == false:
 		velocity.y = -JUMP_VELOCITY;
+		Audio.get_node("mare_wings").play()
 		_animation_player.play("Jump_Air")
 		attacking = false
 		doubleJump = true
@@ -232,6 +235,7 @@ func _on_animation_player_animation_finished(anim_name):
 		
 	if anim_name == "Sit" and !returning:
 		_animation_player.play("Sit_Idle")
+		Audio.get_node("mare_breathing").play()
 	if returning:
 		returning = false
 		
@@ -273,6 +277,7 @@ func _on_interaction_area_area_entered(area):
 			if health == 0:
 				dead = true
 				_animation_player.play("Death")
+				Audio.get_node("mare_death").play()
 				SceneManager.reloadCurrentScene()
 				return
 			_invincibilityTimer.start()

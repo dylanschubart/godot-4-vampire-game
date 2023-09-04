@@ -7,6 +7,8 @@ func _ready():
 	_animation_player.play("Level_End_Idle")
 	
 func interact():
+	Audio.get_node("level_complete").play()
+	Audio.get_node("wing_sound").stop()
 	return "levelEnd"
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dttit1ynmp8v6"]
+[gd_scene load_steps=17 format=3 uid="uid://dttit1ynmp8v6"]
 
 [ext_resource type="AudioStream" uid="uid://d3aiivk3lm3mb" path="res://Assets/Sound/SoundEffects/slash.wav" id="1_7cqcr"]
 [ext_resource type="AudioStream" uid="uid://dgjubhdbrcbvd" path="res://Assets/Sound/Music/Dracula's Coming │ Dark Pipe Organ Music (Royalty Free).wav" id="1_d80q4"]
@@ -11,6 +11,11 @@
 [ext_resource type="AudioStream" uid="uid://dqxt8n6rv4mp0" path="res://Assets/Sound/SoundEffects/mare_breathing.wav" id="9_o43ik"]
 [ext_resource type="AudioStream" uid="uid://dyoy248s6hy63" path="res://Assets/Sound/SoundEffects/mare_death.wav" id="10_at8ur"]
 [ext_resource type="AudioStream" uid="uid://wttdml7x1i3l" path="res://Assets/Sound/SoundEffects/monster_death.wav" id="11_6k1hr"]
+[ext_resource type="AudioStream" uid="uid://b2x5tite3lrkq" path="res://Assets/Sound/SoundEffects/level_complete.wav" id="12_3omdv"]
+[ext_resource type="AudioStream" uid="uid://cixikcek1un8h" path="res://Assets/Sound/SoundEffects/level_transition.wav" id="13_x4ohg"]
+[ext_resource type="AudioStream" uid="uid://ctofh7rd72yt5" path="res://Assets/Sound/SoundEffects/sacrificing.wav" id="14_0vmiw"]
+[ext_resource type="AudioStream" uid="uid://b26pr5mof136s" path="res://Assets/Sound/SoundEffects/mare_jump_sound.wav" id="15_6yvvr"]
+[ext_resource type="AudioStream" uid="uid://b5quhx687ekx0" path="res://Assets/Sound/SoundEffects/mare_wings.wav" id="16_ien37"]
 
 [node name="Audio" type="Node2D"]
 
@@ -73,5 +78,21 @@ stream = ExtResource("11_6k1hr")
 bus = &"SoundEffects"
 
 [node name="level_complete" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_3omdv")
+bus = &"SoundEffects"
 
 [node name="level_transition" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_x4ohg")
+bus = &"SoundEffects"
+
+[node name="sacrificing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_0vmiw")
+bus = &"SoundEffects"
+
+[node name="mare_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_6yvvr")
+bus = &"SoundEffects"
+
+[node name="mare_wings" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_ien37")
+bus = &"SoundEffects"

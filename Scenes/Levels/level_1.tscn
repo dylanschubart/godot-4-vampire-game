@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://8qrh1m73njfy" path="res://Scenes/NPC & Enemies/enemy_patrol.tscn" id="3_7wg0e"]
 [ext_resource type="PackedScene" uid="uid://d3ptj1csoxvd1" path="res://Scenes/Hazard/Spikes.tscn" id="3_qmn5n"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="4_f61ys"]
-[ext_resource type="PackedScene" uid="uid://1uxr8c0vuspe" path="res://Scenes/UI/settings.tscn" id="5_8qcbj"]
+[ext_resource type="PackedScene" uid="uid://1uxr8c0vuspe" path="res://Scenes/Ui/settings.tscn" id="5_8qcbj"]
 [ext_resource type="Texture2D" uid="uid://cv1j05sxtsul2" path="res://Assets/Environment/Paralax/ParallaxBehind.png" id="5_p4ftj"]
 [ext_resource type="PackedScene" uid="uid://4ogxdks6rmn2" path="res://Scenes/Objects/level_end.tscn" id="7_x2a75"]
 [ext_resource type="PackedScene" uid="uid://1axatpmf3npj" path="res://Scenes/Objects/altar.tscn" id="8_j4swh"]

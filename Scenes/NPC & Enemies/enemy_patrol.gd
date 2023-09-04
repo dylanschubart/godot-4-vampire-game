@@ -51,6 +51,7 @@ func _physics_process(delta):
 	elif dead and !deathanim:
 		deathanim = true
 		_anim_player.play("Death")
+		Audio.get_node("monster_death").play()
 		
 	if carried:
 		_sprite.set_texture(corpse)
@@ -115,6 +116,7 @@ func interact():
 	return "enemy"
 
 func sacrifice():
+	Audio.get_node("sacrificing").play()
 	_sprite.material.set_shader_parameter("width", 0)
 	_player.endE()
 	_areaHit.remove_from_group("Interactables")
