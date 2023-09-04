@@ -2,7 +2,6 @@ extends TextureRect
 
 @export var dialogPath = ""
 @export var textSpeed = 0.05
-@onready var daddy_talking = get_tree().root.get_node("/root/World/Audio/daddy_talking")
 
 var dialog
  

@@ -71,3 +71,7 @@ bus = &"SoundEffects"
 [node name="monster_death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_6k1hr")
 bus = &"SoundEffects"
+
+[node name="level_complete" type="AudioStreamPlayer2D" parent="."]
+
+[node name="level_transition" type="AudioStreamPlayer2D" parent="."]

@@ -3,6 +3,7 @@ extends Control
 @onready var _settings = $"../Settings"
 @onready var _resolutionOptions = $"../Settings/ResolutionOptions"
 
+var pressedStart = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -15,8 +16,10 @@ func _process(_delta):
 
 
 func _on_start_pressed():
-	Audio.get_node("button_click").play()
-	SceneManager.changeSceneWithTransition(SceneManager.scenes[0], false)
+	if !pressedStart:
+		pressedStart = true
+		Audio.get_node("button_click").play()
+		SceneManager.changeSceneWithTransition(SceneManager.scenes[0], false)
 
 
 func _on_options_pressed():

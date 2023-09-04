@@ -6,7 +6,7 @@ extends Camera2D
 func _ready():
 	pass
 	
-func _process(delta):
+func _process(_delta):
 	#if Input.is_action_just_pressed("DebugInteract"):
 	#	screenshake()
 	pass
