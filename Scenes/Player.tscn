@@ -771,6 +771,7 @@ offset_top = -57.0
 offset_right = 45.0
 offset_bottom = -23.0
 scale = Vector2(0.807921, 0.737207)
+theme_override_colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
 theme_override_fonts/font = ExtResource("17_xuhno")
 theme_override_font_sizes/font_size = 30
 text = "E"

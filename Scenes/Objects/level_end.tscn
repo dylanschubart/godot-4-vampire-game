@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://4ogxdks6rmn2"]
+[gd_scene load_steps=10 format=3 uid="uid://4ogxdks6rmn2"]
 
 [ext_resource type="Texture2D" uid="uid://blagff7o6erm5" path="res://Assets/Environment/dungeon/ChaliceLady.png" id="1_27f6g"]
 [ext_resource type="Shader" path="res://Scenes/Objects/Outline.gdshader" id="1_tu8rb"]
 [ext_resource type="Script" path="res://Scenes/Objects/Level_End_Zone.gd" id="2_fklnl"]
+[ext_resource type="FontFile" uid="uid://cmg6w566iutjl" path="res://Assets/Font/Alkhemikal.ttf" id="4_w15ch"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ppmb5"]
 shader = ExtResource("1_tu8rb")
@@ -97,6 +98,15 @@ script = ExtResource("2_fklnl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level_End_Zone"]
 position = Vector2(0, -20.5)
 shape = SubResource("RectangleShape2D_788j0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -49.0
+offset_top = -84.0
+offset_right = 54.0
+offset_bottom = -61.0
+theme_override_colors/font_color = Color(0.784314, 0.784314, 0.784314, 1)
+theme_override_fonts/font = ExtResource("4_w15ch")
+text = "Return to master"
 
 [connection signal="area_entered" from="Level_End_Zone" to="Level_End_Zone" method="_on_area_entered"]
 [connection signal="area_exited" from="Level_End_Zone" to="Level_End_Zone" method="_on_area_exited"]
