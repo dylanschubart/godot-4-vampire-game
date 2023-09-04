@@ -15,7 +15,7 @@ func _ready():
 	AddResolutions()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _on_back_pressed():
@@ -36,9 +36,9 @@ func AddResolutions():
 	for r in resolutions:
 		_resolutionOptions.add_item(r)
 
-func _on_resolution_options_item_selected(index):
-	var size = resolutions.get(_resolutionOptions.get_item_text(_resolutionOptions.get_selected_id()))
-	DisplayServer.window_set_size(size)
+func _on_resolution_options_item_selected(_index):
+	var sizeScreen = resolutions.get(_resolutionOptions.get_item_text(_resolutionOptions.get_selected_id()))
+	DisplayServer.window_set_size(sizeScreen)
 
 
 

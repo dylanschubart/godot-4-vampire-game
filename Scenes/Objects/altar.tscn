@@ -46,5 +46,7 @@ theme_override_fonts/font = ExtResource("4_nqfwb")
 theme_override_font_sizes/font_size = 14
 text = "REQUIRES"
 
+[node name="Spawnpoint" type="Marker2D" parent="."]
+
 [connection signal="area_entered" from="Sacrifice_Area" to="." method="_on_sacrifice_area_area_entered"]
 [connection signal="area_exited" from="Sacrifice_Area" to="." method="_on_sacrifice_area_area_exited"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://wyw86olpl743"]
+[gd_scene load_steps=20 format=3 uid="uid://wyw86olpl743"]
 
 [ext_resource type="Texture2D" uid="uid://chmodkyx5blo6" path="res://Assets/Environment/dungeon/Level1_Room.png" id="1_ivcty"]
 [ext_resource type="Texture2D" uid="uid://cn0uadud44bu2" path="res://Assets/Environment/dungeon/HanginBody.png" id="2_mm0dh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/Objects/LevelSelect.tscn" id="5_kw00c"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="5_mb4nh"]
 [ext_resource type="PackedScene" uid="uid://b5mrbp81j7btc" path="res://Scenes/Objects/door.tscn" id="6_0dr3b"]
+[ext_resource type="PackedScene" uid="uid://1uxr8c0vuspe" path="res://Scenes/UI/settings.tscn" id="6_4mbfw"]
 [ext_resource type="Shader" path="res://Scenes/Objects/Outline.gdshader" id="7_ghfle"]
 
 [sub_resource type="Animation" id="Animation_yyby3"]
@@ -143,6 +144,10 @@ limit_top = -180
 limit_right = 194
 limit_bottom = 0
 script = ExtResource("5_mb4nh")
+
+[node name="settings" parent="Player" instance=ExtResource("6_4mbfw")]
+process_mode = 3
+visible = false
 
 [node name="WallLeft" type="StaticBody2D" parent="."]
 

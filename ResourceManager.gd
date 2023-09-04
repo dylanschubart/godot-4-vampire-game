@@ -74,12 +74,12 @@ func loadRoom(index, player):
 	player.returning = wentIntoLevel
 	
 	if roomSacrificed.size() > index:
-		var sacrificedScore = get_tree().root.get_node("LevelSelect/Sacrificed/BestScore") 
-		sacrificedScore.set_text(str(roomSacrificed[index]))
+		var sacrificedScore = get_tree().root.get_node("Room" + str(index + 1) + "/LevelSelect/Sacrificed/BestScore")
+		sacrificedScore.text = str(roomSacrificed[index])
 		
 	if roomHealth.size() > index:
-		var bloodScore = get_tree().root.get_node("LevelSelect/Blood/BestScore") 
-		bloodScore.set_text(str(roomHealth[index]))
+		var bloodScore = get_tree().root.get_node("Room" + str(index + 1) + "/LevelSelect/Blood/BestScore") 
+		bloodScore.text = str(roomHealth[index])
 		
 		
 func saveLevel(index, health, sacrificed):

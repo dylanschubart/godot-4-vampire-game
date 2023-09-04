@@ -12,9 +12,9 @@ func _ready():
 		AudioServer.get_bus_volume_db(bus_index)
 	)
 	
-func _on_value_changed(value: float) -> void:
+func _on_value_changed(valueChanged: float) -> void:
 	Audio.get_node("button_click").play()
-	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(valueChanged))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

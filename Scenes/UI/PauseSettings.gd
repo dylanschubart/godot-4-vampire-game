@@ -33,7 +33,7 @@ func AddResolutions():
 	for r in resolutions:
 		_resolutionOptions.add_item(r)
 
-func _on_resolution_options_item_selected(index):
+func _on_resolution_options_item_selected(_index):
 	Audio.get_node("button_click").play()
-	var size = resolutions.get(_resolutionOptions.get_item_text(_resolutionOptions.get_selected_id()))
-	DisplayServer.window_set_size(size)
+	var sizeRes = resolutions.get(_resolutionOptions.get_item_text(_resolutionOptions.get_selected_id()))
+	DisplayServer.window_set_size(sizeRes)
