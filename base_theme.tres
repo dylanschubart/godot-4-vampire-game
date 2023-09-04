@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dpjrlixqe3u"]
+
+[ext_resource type="FontFile" uid="uid://cmg6w566iutjl" path="res://Assets/Font/Alkhemikal.ttf" id="1_0cor6"]
+[ext_resource type="Texture2D" uid="uid://bf4c5wujqj62p" path="res://Assets/UI/SliderBG.png" id="1_0xhwm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3h00g"]
+texture = ExtResource("1_0xhwm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d3cep"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p6k88"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gvbjs"]
+texture = ExtResource("1_0xhwm")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_21okx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k2vwn"]
+
+[resource]
+default_font = ExtResource("1_0cor6")
+default_font_size = 8
+PopupMenu/styles/hover = SubResource("StyleBoxTexture_3h00g")
+PopupMenu/styles/labeled_separator_left = SubResource("StyleBoxTexture_d3cep")
+PopupMenu/styles/labeled_separator_right = SubResource("StyleBoxTexture_p6k88")
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_gvbjs")
+PopupMenu/styles/panel_disabled = SubResource("StyleBoxTexture_21okx")
+PopupMenu/styles/separator = SubResource("StyleBoxTexture_k2vwn")

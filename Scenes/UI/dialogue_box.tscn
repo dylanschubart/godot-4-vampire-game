@@ -55,6 +55,7 @@ script = ExtResource("2_nmbxj")
 dialogPath = "res://Assets/Dialogue/StartDialogue.json"
 
 [node name="Text" type="RichTextLabel" parent="DialogueSprite"]
+layout_mode = 0
 offset_left = 41.0
 offset_top = 137.0
 offset_right = 281.0

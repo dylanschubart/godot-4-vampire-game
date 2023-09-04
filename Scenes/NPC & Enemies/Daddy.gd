@@ -6,6 +6,7 @@ var path_follow
 @onready var new_parent = get_node("/root/World/WalkingPath/WalkingFollowPath")
 
 @export var _speed = 25
+@export var _flying_speed = 100
 
 
 var reached_end = false
@@ -33,7 +34,7 @@ func _physics_process(delta):
 		walkingStarted = true
 
 	if !reached_flying_end:
-		flying_path.set_progress(flying_path.get_progress() + _speed * delta)
+		flying_path.set_progress(flying_path.get_progress() + _flying_speed * delta)
 		
 	if flying_path.get_progress_ratio() == 1:
 		reached_flying_end = true
