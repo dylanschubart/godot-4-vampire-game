@@ -14,7 +14,7 @@ tracks/0/path = NodePath("SpiralTransition:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 10.3, 30.3),
+"times": PackedFloat32Array(0, 10.3, 24.9),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -255,6 +255,7 @@ position = Vector2(160, 90)
 texture = ExtResource("2_hkiob")
 
 [node name="SpiralTransition" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(160, 90)
 texture = ExtResource("3_yld5x")
 hframes = 2

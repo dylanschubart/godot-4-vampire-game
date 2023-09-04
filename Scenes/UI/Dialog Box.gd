@@ -13,6 +13,8 @@ func _ready():
 
 	
 func start():
+	var player = get_tree().root.get_node("World/Player")
+	player.dialogueIsFinished = false
 	Audio.get_node("daddy_talking").play()
 	$Timer.wait_time = textSpeed
 	phraseNum = 0
@@ -48,6 +50,8 @@ func nextPhrase() -> void:
 		var daddy = get_node("/root/World/WalkingPath/WalkingFollowPath/Daddy")
 		get_parent().hide()
 		daddy.dialogueIsFinished = true
+		var player = get_tree().root.get_node("World/Player")
+		player.dialogueIsFinished = true
 		return
 	Audio.get_node("daddy_talking").play()
 	finished = false

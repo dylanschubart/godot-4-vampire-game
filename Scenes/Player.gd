@@ -50,6 +50,7 @@ var levelEnding = false
 var returning = false
 var levelEnter = false
 var dead = false
+var dialogueIsFinished = true
 
 func _ready():
 	get_node("Camera2D").make_current()
@@ -87,7 +88,7 @@ func _physics_process(delta):
 		flickerTime = 1.5
 		
 	#Check if we're interacting
-	if Input.is_action_just_pressed("Interact"):
+	if Input.is_action_just_pressed("Interact") and dialogueIsFinished:
 		for area in $InteractionArea.get_overlapping_areas():
 			if area.is_in_group('Interactables'):
 				if area.has_method("interact"):
