@@ -19,11 +19,19 @@ var dialogueIsFinished = false
 
 
 func _ready():
+	#audio & animation
 	Audio.get_node("BGHub").play()
 	Audio.get_node("BGTitleScreen").stop()
 	Audio.get_node("BGLevel").stop()
 	if !startAnimationEnded and !reached_flying_end:
 		_animation_player.play("Bat")
+		
+	#check level1 info
+	var levelInfo = ResourceManager.getLevelInfo(0)
+	if levelInfo == 9:
+		DialogueManager.showDialogueBox("res://Assets/Dialogue/GoodDialogue.json")
+	elif levelInfo != 0:
+		DialogueManager.showDialogueBox("res://Assets/Dialogue/BadDialogue.json")
 	
 func _physics_process(delta):
 	#FLYING

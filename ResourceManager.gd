@@ -102,7 +102,7 @@ func saveLevel(index, health, sacrificed):
 	
 func getLevelInfo(index):
 	if roomSacrificed.size() > index and roomHealth.size() > index:
-		return roomSacrificed[index] + roomHealth[index]
+		return int(roomSacrificed[index]) + int(roomHealth[index])
 	return 0
 
 

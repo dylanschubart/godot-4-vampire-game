@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c10i6xtnpw0g2" path="res://Scenes/Objects/LevelSelect.tscn" id="5_kw00c"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="5_mb4nh"]
 [ext_resource type="PackedScene" uid="uid://b5mrbp81j7btc" path="res://Scenes/Objects/door.tscn" id="6_0dr3b"]
-[ext_resource type="PackedScene" uid="uid://1uxr8c0vuspe" path="res://Scenes/Ui/settings.tscn" id="6_4mbfw"]
+[ext_resource type="PackedScene" uid="uid://1uxr8c0vuspe" path="res://Scenes/UI/settings.tscn" id="6_4mbfw"]
 [ext_resource type="Shader" path="res://Scenes/Objects/Outline.gdshader" id="7_ghfle"]
 
 [sub_resource type="Animation" id="Animation_yyby3"]
