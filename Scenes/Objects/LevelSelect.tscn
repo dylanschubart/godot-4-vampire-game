@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c10i6xtnpw0g2"]
+[gd_scene load_steps=12 format=3 uid="uid://c10i6xtnpw0g2"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/InteractionZone.gd" id="1_rrjom"]
 [ext_resource type="Shader" path="res://Scenes/Objects/Outline.gdshader" id="2_e6v5v"]
 [ext_resource type="Texture2D" uid="uid://yt4nw8wq4lys" path="res://Assets/Environment/dungeon/Body_LV1.png" id="2_ocsy0"]
+[ext_resource type="Texture2D" uid="uid://cifdlrwn22xdm" path="res://Assets/UI/HealthBarFilledLevel.png" id="4_rnvxx"]
+[ext_resource type="FontFile" uid="uid://cmg6w566iutjl" path="res://Assets/Font/Alkhemikal.ttf" id="5_30bdp"]
+[ext_resource type="Texture2D" uid="uid://0glrnxjtpksa" path="res://Assets/NPC/Enemies/Crawler-CarryCorpse.png" id="6_6jstx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8cn3"]
 size = Vector2(15, 4)
@@ -71,6 +74,49 @@ hframes = 2
 libraries = {
 "": SubResource("AnimationLibrary_5alf6")
 }
+
+[node name="Blood" type="Sprite2D" parent="."]
+position = Vector2(23, -59)
+scale = Vector2(0.421875, 0.421875)
+texture = ExtResource("4_rnvxx")
+
+[node name="BestScore" type="Label" parent="Blood"]
+offset_left = -35.5555
+offset_top = 28.4444
+offset_right = 4.44445
+offset_bottom = 70.4444
+theme_override_fonts/font = ExtResource("5_30bdp")
+theme_override_font_sizes/font_size = 38
+text = "0"
+
+[node name="MaxScore" type="Label" parent="Blood"]
+offset_left = -7.11111
+offset_top = 30.8148
+offset_right = 36.8889
+offset_bottom = 73.8148
+theme_override_fonts/font = ExtResource("5_30bdp")
+theme_override_font_sizes/font_size = 38
+text = "/ 6"
+
+[node name="Sacrificed" type="Sprite2D" parent="."]
+position = Vector2(-23, -70)
+texture = ExtResource("6_6jstx")
+
+[node name="BestScore" type="Label" parent="Sacrificed"]
+offset_left = -15.0
+offset_top = 23.0
+offset_right = 25.0
+offset_bottom = 46.0
+theme_override_fonts/font = ExtResource("5_30bdp")
+text = "0"
+
+[node name="MaxScore" type="Label" parent="Sacrificed"]
+offset_left = -3.0
+offset_top = 24.0
+offset_right = 37.0
+offset_bottom = 47.0
+theme_override_fonts/font = ExtResource("5_30bdp")
+text = "/ 3"
 
 [connection signal="area_entered" from="InteractionZone" to="InteractionZone" method="_on_area_entered"]
 [connection signal="area_exited" from="InteractionZone" to="InteractionZone" method="_on_area_exited"]

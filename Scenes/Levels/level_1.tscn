@@ -736,6 +736,8 @@ position = Vector2(34, -4)
 stream = ExtResource("12_k5kf7")
 autoplay = true
 
+[connection signal="tree_exited" from="." to="Player" method="_on_level_1_tree_exited"]
+
 [editable path="Player"]
 [editable path="Enemy_Patrol"]
 [editable path="Enemy_Patrol2"]
