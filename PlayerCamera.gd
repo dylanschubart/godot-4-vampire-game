@@ -6,7 +6,28 @@ extends Camera2D
 func _ready():
 	pass
 	
+func _process(delta):
+	if Input.is_action_just_pressed("DebugInteract"):
+		screenshake()
+	
 func screenshake():
 	var tween = create_tween()
-	tween.tween_property(self, "zoom", Vector2(0.9, 0.9), 0.8)
+	tween.tween_property(self, "offset", Vector2(-5, -5), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(5, 0), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(-5, 5), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(5, 0), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(-5, -5), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(5, 0), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(-5, 5), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(5, 0), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(-5, -5), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(5, 0), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(-5, 5), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(5, 0), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(-5, -5), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(5, 0), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(-5, 5), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(5, 0), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(-5, -5), 0.2)
+	tween.chain().tween_property(self, "offset", Vector2(0, 0), 0.2)
 	tween.play()

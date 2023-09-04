@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://cotvapss3xvi"]
 
-[ext_resource type="PackedScene" uid="uid://dgxknrs4tke8w" path="res://Scenes/Ui/dialogue_box.tscn" id="1_bsj6v"]
+[ext_resource type="PackedScene" uid="uid://dgxknrs4tke8w" path="res://Scenes/UI/dialogue_box.tscn" id="1_bsj6v"]
 [ext_resource type="Texture2D" uid="uid://oho6uwwsw2a4" path="res://Assets/Environment/dungeon/Hub_Background.png" id="1_o0e5a"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="1_oavew"]
 [ext_resource type="Texture2D" uid="uid://gk6xgs6ybjst" path="res://Assets/Environment/dungeon/Hub_Foreground.png" id="2_btgch"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cw3x3xn1gqvsn" path="res://Assets/Environment/dungeon/Pillar.png" id="8_kse4c"]
 [ext_resource type="Texture2D" uid="uid://dpyvvk15jkgrf" path="res://Assets/NPC/Daddy-Bat.png" id="8_mi8c8"]
 [ext_resource type="Script" path="res://PlayerCamera.gd" id="8_p2q7w"]
-[ext_resource type="PackedScene" uid="uid://1uxr8c0vuspe" path="res://Scenes/Ui/settings.tscn" id="9_4fqb3"]
+[ext_resource type="PackedScene" uid="uid://1uxr8c0vuspe" path="res://Scenes/UI/settings.tscn" id="9_4fqb3"]
 [ext_resource type="Texture2D" uid="uid://d0j8m2o5yclkw" path="res://Assets/Environment/dungeon/Door_side_backgroundarch.png" id="9_jffop"]
 [ext_resource type="AudioStream" uid="uid://dgjubhdbrcbvd" path="res://Assets/Sound/Music/Dracula's Coming │ Dark Pipe Organ Music (Royalty Free).wav" id="15_2dgfe"]
 [ext_resource type="AudioStream" uid="uid://bpdkeuuis73kl" path="res://Assets/Sound/SoundEffects/daddy_talking.wav" id="16_cp4q6"]
