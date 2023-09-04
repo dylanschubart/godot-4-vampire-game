@@ -2,7 +2,7 @@ extends TextureRect
 
 @export var dialogPath = ""
 @export var textSpeed = 0.05
-#@onready var daddy = get_tree().root.get_node("/root/World/WalkingPath/WalkingFollowPath/Daddy")
+@onready var daddy_talking = get_tree().root.get_node("/root/World/Audio/daddy_talking")
 
 var dialog
  
@@ -14,6 +14,7 @@ func _ready():
 
 	
 func start():
+	daddy_talking.play()
 	$Timer.wait_time = textSpeed
 	phraseNum = 0
 	get_parent().show()
@@ -49,7 +50,7 @@ func nextPhrase() -> void:
 		get_parent().hide()
 		daddy.dialogueIsFinished = true
 		return
-	
+	daddy_talking.play()
 	finished = false
 	
 	$Text.bbcode_text = dialog[phraseNum]["Text"]

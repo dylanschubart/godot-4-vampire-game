@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://roc5s3lm45t8"]
+[gd_scene load_steps=19 format=3 uid="uid://roc5s3lm45t8"]
 
 [ext_resource type="Texture2D" uid="uid://hnpwqy6s3dik" path="res://Assets/Environment/Level1/TilesetLv1_8x8.png" id="1_aijhc"]
 [ext_resource type="PackedScene" uid="uid://dmno3a63ki8kl" path="res://Scenes/Player.tscn" id="2_0q7id"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://4ogxdks6rmn2" path="res://Scenes/Objects/level_end.tscn" id="7_x2a75"]
 [ext_resource type="PackedScene" uid="uid://1axatpmf3npj" path="res://Scenes/Objects/altar.tscn" id="8_j4swh"]
 [ext_resource type="Shader" path="res://Scenes/Objects/Outline.gdshader" id="9_athkn"]
+[ext_resource type="AudioStream" uid="uid://c41jy00cn8454" path="res://Assets/Sound/Music/Royalty Free Music - Static Motion - Horror - Kevin MacLeod.wav" id="12_k5kf7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_buy6l"]
 resource_name = "Terrain"
@@ -729,6 +730,10 @@ position = Vector2(-42, -2)
 
 [node name="RightPoint" parent="Enemy_Patrol3" index="5"]
 position = Vector2(34, -4)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_k5kf7")
+autoplay = true
 
 [editable path="Player"]
 [editable path="Enemy_Patrol"]
