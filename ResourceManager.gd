@@ -75,8 +75,9 @@ func loadRoom(index, player):
 	
 	if roomSacrificed.size() > index:
 		var sacrificedScore = get_tree().root.get_node("LevelSelect/Sacrificed/BestScore") 
-		sacrificedScore.set_text(roomSacrificed[index])
-	if roomHealth.set_text(str(roomSacrificed[index])):
+		sacrificedScore.set_text(str(roomSacrificed[index]))
+		
+	if roomHealth.size() > index:
 		var bloodScore = get_tree().root.get_node("LevelSelect/Blood/BestScore") 
 		bloodScore.set_text(str(roomHealth[index]))
 		
