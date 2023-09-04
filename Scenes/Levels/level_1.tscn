@@ -731,6 +731,15 @@ position = Vector2(-42, -2)
 [node name="RightPoint" parent="Enemy_Patrol3" index="5"]
 position = Vector2(34, -4)
 
+<<<<<<< HEAD
+=======
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_k5kf7")
+autoplay = true
+
+[connection signal="tree_exited" from="." to="Player" method="_on_level_1_tree_exited"]
+
+>>>>>>> ba9cd6791dab327d711248b5d193e1f0aac46463
 [editable path="Player"]
 [editable path="Enemy_Patrol"]
 [editable path="Enemy_Patrol2"]

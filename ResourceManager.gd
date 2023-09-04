@@ -95,6 +95,10 @@ func saveLevel(index, health, sacrificed):
 			roomHealth[index] = health
 	else:
 		roomHealth.append(health)
+		
+	print('Saving level')
+	print('Sacrificed enemies: ' + str(roomSacrificed[index]))
+	print("Health: " + str(roomHealth[index]))
 	
 func getLevelInfo(_index):
 	pass
