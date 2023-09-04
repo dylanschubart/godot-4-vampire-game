@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://7cldl20w6xpa"]
+[gd_scene load_steps=55 format=3 uid="uid://7cldl20w6xpa"]
 
 [ext_resource type="Texture2D" uid="uid://bpy0wf48ist7g" path="res://Assets/UI/titleScreen.png" id="1_gpsr7"]
 [ext_resource type="Script" path="res://Scenes/Ui/title_screen.gd" id="1_v104g"]
@@ -16,8 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://cpho4qqnwdjj6" path="res://Assets/UI/SliderFill.png" id="12_blhjo"]
 [ext_resource type="Texture2D" uid="uid://hrbyy4wqars" path="res://Assets/UI/CheckboxFocus.png" id="13_7fkho"]
 [ext_resource type="Script" path="res://Scenes/Ui/Volume_slider.gd" id="16_jr4py"]
-[ext_resource type="AudioStream" uid="uid://b818bibcr8sfy" path="res://Assets/Sound/Music/Royalty Free Music - Digital Bark - Horror - Kevin MacLeod.wav" id="17_ygdrb"]
-[ext_resource type="AudioStream" uid="uid://dhwkvcajodkt0" path="res://Assets/Sound/SoundEffects/button_click.mp3" id="18_ckjt5"]
 
 [sub_resource type="Animation" id="Animation_bosk5"]
 resource_name = "PressAnyKey"
@@ -515,20 +513,6 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_r80ap")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_dduh1")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6egxd")
 text = "Back"
-
-[node name="Audio" type="Node2D" parent="."]
-
-[node name="BGMusic" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("17_ygdrb")
-volume_db = -11.0
-autoplay = true
-bus = &"Music"
-
-[node name="button_click" type="AudioStreamPlayer2D" parent="Audio"]
-stream = ExtResource("18_ckjt5")
-pitch_scale = 0.62
-autoplay = true
-bus = &"SoundEffects"
 
 [connection signal="focus_entered" from="MainMenu/Start" to="MainMenu" method="_on_start_focus_entered"]
 [connection signal="mouse_entered" from="MainMenu/Start" to="MainMenu" method="_on_start_mouse_entered"]

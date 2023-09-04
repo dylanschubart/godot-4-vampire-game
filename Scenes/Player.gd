@@ -182,7 +182,7 @@ func jump():
 func attack():
 	if !attacking and !carrying and readyForAttack:	
 		if Input.is_action_just_pressed("Attack"):
-			
+			Audio.get_node("Slash").play()
 			if Input.is_action_pressed("Aim_Up"):
 				#animation
 				_animation_player.play("Attack_Up")
@@ -283,6 +283,7 @@ func _on_interaction_area_area_entered(area):
 		emit_signal("health_changed", health)
 		dead = true
 		_animation_player.play("Death")
+		Audio.get_node("Scream").stop()
 		SceneManager.reloadCurrentScene()
 
 

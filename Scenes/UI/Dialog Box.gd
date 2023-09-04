@@ -14,7 +14,7 @@ func _ready():
 
 	
 func start():
-	daddy_talking.play()
+	Audio.get_node("daddy_talking").play()
 	$Timer.wait_time = textSpeed
 	phraseNum = 0
 	get_parent().show()
@@ -50,7 +50,7 @@ func nextPhrase() -> void:
 		get_parent().hide()
 		daddy.dialogueIsFinished = true
 		return
-	daddy_talking.play()
+	Audio.get_node("daddy_talking").play()
 	finished = false
 	
 	$Text.bbcode_text = dialog[phraseNum]["Text"]

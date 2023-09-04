@@ -1,12 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dttit1ynmp8v6"]
+[gd_scene load_steps=12 format=3 uid="uid://dttit1ynmp8v6"]
 
+[ext_resource type="AudioStream" uid="uid://d3aiivk3lm3mb" path="res://Assets/Sound/SoundEffects/slash.wav" id="1_7cqcr"]
 [ext_resource type="AudioStream" uid="uid://dgjubhdbrcbvd" path="res://Assets/Sound/Music/Dracula's Coming │ Dark Pipe Organ Music (Royalty Free).wav" id="1_d80q4"]
 [ext_resource type="AudioStream" uid="uid://bpdkeuuis73kl" path="res://Assets/Sound/SoundEffects/daddy_talking.wav" id="2_axapp"]
+[ext_resource type="AudioStream" uid="uid://coebgorhve5dk" path="res://Assets/Sound/SoundEffects/wing_sound.wav" id="3_8hwwc"]
 [ext_resource type="AudioStream" uid="uid://dhwkvcajodkt0" path="res://Assets/Sound/SoundEffects/button_click.mp3" id="3_ln42n"]
+[ext_resource type="AudioStream" uid="uid://b818bibcr8sfy" path="res://Assets/Sound/Music/Royalty Free Music - Digital Bark - Horror - Kevin MacLeod.wav" id="4_q0qbl"]
+[ext_resource type="AudioStream" uid="uid://74p1n8ud8lav" path="res://Assets/Sound/SoundEffects/demonic_roar.wav" id="7_u03t1"]
+[ext_resource type="AudioStream" uid="uid://c41jy00cn8454" path="res://Assets/Sound/Music/Royalty Free Music - Static Motion - Horror - Kevin MacLeod.wav" id="8_lgnwr"]
+[ext_resource type="AudioStream" uid="uid://dqxt8n6rv4mp0" path="res://Assets/Sound/SoundEffects/mare_breathing.wav" id="9_o43ik"]
+[ext_resource type="AudioStream" uid="uid://dyoy248s6hy63" path="res://Assets/Sound/SoundEffects/mare_death.wav" id="10_at8ur"]
+[ext_resource type="AudioStream" uid="uid://wttdml7x1i3l" path="res://Assets/Sound/SoundEffects/monster_death.wav" id="11_6k1hr"]
 
 [node name="Audio" type="Node2D"]
 
 [node name="Slash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_7cqcr")
+volume_db = -19.945
+pitch_scale = 1.08
 bus = &"SoundEffects"
 
 [node name="Jump" type="AudioStreamPlayer2D" parent="."]
@@ -20,17 +31,43 @@ stream = ExtResource("2_axapp")
 bus = &"SoundEffects"
 
 [node name="wing_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8hwwc")
+pitch_scale = 0.78
 bus = &"SoundEffects"
 
 [node name="button_click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ln42n")
 pitch_scale = 0.62
-autoplay = true
 bus = &"SoundEffects"
 
 [node name="BGHub" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("1_d80q4")
 volume_db = -11.0
-autoplay = true
 bus = &"Music"
+
+[node name="BGTitleScreen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_q0qbl")
+volume_db = -11.0
+bus = &"Music"
+
+[node name="BGLevel" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_lgnwr")
+bus = &"Music"
+
+[node name="Scream" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_u03t1")
+pitch_scale = 1.3
+bus = &"SoundEffects"
+
+[node name="mare_breathing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_o43ik")
+bus = &"SoundEffects"
+
+[node name="mare_death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_at8ur")
+bus = &"SoundEffects"
+
+[node name="monster_death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_6k1hr")
+bus = &"SoundEffects"

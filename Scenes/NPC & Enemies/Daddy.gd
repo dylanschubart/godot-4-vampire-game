@@ -19,7 +19,9 @@ var dialogueIsFinished = false
 
 
 func _ready():
-	print(new_parent)
+	Audio.get_node("BGHub").play()
+	Audio.get_node("BGTitleScreen").stop()
+	Audio.get_node("BGLevel").stop()
 	if !startAnimationEnded and !reached_flying_end:
 		_animation_player.play("Bat")
 	

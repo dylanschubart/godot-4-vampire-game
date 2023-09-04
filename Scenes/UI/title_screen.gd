@@ -8,6 +8,7 @@ extends Node2D
 var pressedAnyKey = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Audio.get_node("BGTitleScreen").play()
 	_animation_player.play("Start")
 	await _animation_player.animation_finished
 	_animation_player.play("PressAnyKey")

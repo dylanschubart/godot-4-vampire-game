@@ -7,6 +7,8 @@ const SPEED = 30.0
 @onready var _sprite = $Sprite2D
 
 func _ready():
+	Audio.get_node("wing_sound").play()
+	Audio.get_node("Scream").play()
 	_animationplayer.play("Nightmare_Flying")
 
 func _physics_process(delta):
