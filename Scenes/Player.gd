@@ -25,6 +25,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var labelE = $E
 @onready var _darkness = $Darkness
 @onready var _settings = $settings
+@onready var _progress = $SacrificedProgress/AmountProgress
 
 var maxdarkness = 0
 var hit = false
@@ -327,3 +328,7 @@ func _on_room_1_tree_exited():
 	
 func _on_room_1_tree_entered():
 	ResourceManager.loadRoom(0, $".")
+
+
+func _on_level_1_tree_exited():
+	ResourceManager.saveLevel(0, health, _progress.text)

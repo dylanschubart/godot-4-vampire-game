@@ -7,7 +7,8 @@ var hubOpenedDoors = []
 
 #roomSaves
 var roomPlayerPosition = []
-var roomCompleted = []
+var roomSacrificed = []
+var roomHealth = []
 var wentIntoLevel
 
 # Called when the node enters the scene tree for the first time.
@@ -71,11 +72,30 @@ func loadRoom(index, player):
 	if roomPlayerPosition.size() > index:
 		player.global_position = roomPlayerPosition[index]
 	player.returning = wentIntoLevel
+	
+	if roomSacrificed.size() > index:
+		var sacrificedScore = get_tree().root.get_node("LevelSelect/Sacrificed/BestScore") 
+		sacrificedScore.set_text(roomSacrificed[index])
+	if roomHealth.set_text(str(roomSacrificed[index])):
+		var bloodScore = get_tree().root.get_node("LevelSelect/Blood/BestScore") 
+		bloodScore.set_text(str(roomHealth[index]))
 		
-func saveLevel(_index):
-	pass
-
-func loadLevel(_index):
+		
+func saveLevel(index, health, sacrificed):
+	#save sacrificed amount
+	if roomSacrificed.size() > index:
+		if sacrificed > roomSacrificed[index]:
+			roomSacrificed[index] = sacrificed
+	else:
+		roomSacrificed.append(sacrificed)
+	#save health amount
+	if roomHealth.size() > index:
+		if health > roomHealth[index]:
+			roomHealth[index] = health
+	else:
+		roomHealth.append(health)
+	
+func getLevelInfo(_index):
 	pass
 
 

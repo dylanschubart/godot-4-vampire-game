@@ -7,8 +7,9 @@ func _ready():
 	pass
 	
 func _process(delta):
-	if Input.is_action_just_pressed("DebugInteract"):
-		screenshake()
+	#if Input.is_action_just_pressed("DebugInteract"):
+	#	screenshake()
+	pass
 	
 func screenshake():
 	var tween = create_tween()
