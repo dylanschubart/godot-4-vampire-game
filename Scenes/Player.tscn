@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://rvnmboidkld5" path="res://Assets/Player/MareNew-PickUP.png" id="14_c0w58"]
 [ext_resource type="Texture2D" uid="uid://bp570wfmiu6ar" path="res://Assets/Player/MareNew-GrabCalice.png" id="15_bf0rb"]
 [ext_resource type="FontFile" uid="uid://cmg6w566iutjl" path="res://Assets/Font/Alkhemikal.ttf" id="17_xuhno"]
-[ext_resource type="PackedScene" uid="uid://b0v6flub74a6e" path="res://Scenes/UI/sacrificed_progress.tscn" id="18_qiat5"]
+[ext_resource type="PackedScene" uid="uid://b0v6flub74a6e" path="res://Scenes/Ui/sacrificed_progress.tscn" id="18_qiat5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb8a3"]
 radius = 5.0

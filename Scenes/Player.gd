@@ -327,6 +327,11 @@ func _on_world_tree_exited():
 func _on_world_tree_entered():
 	var doorList = [$"../Door"]
 	ResourceManager.loadHub($".", $"../WalkingPath/WalkingFollowPath" , doorList)
+	var levelInfo = ResourceManager.getLevelInfo(0)
+	if levelInfo == 9:
+		DialogueManager.showDialogueBox("res://Assets/Dialogue/GoodDialogue.json")
+	elif levelInfo != 0:
+		DialogueManager.showDialogueBox("res://Assets/Dialogue/BadDialogue.json")
 
 #rooms
 func _on_room_1_tree_exited():

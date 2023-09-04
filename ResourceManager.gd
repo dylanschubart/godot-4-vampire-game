@@ -100,7 +100,9 @@ func saveLevel(index, health, sacrificed):
 	print('Sacrificed enemies: ' + str(roomSacrificed[index]))
 	print("Health: " + str(roomHealth[index]))
 	
-func getLevelInfo(_index):
-	pass
+func getLevelInfo(index):
+	if roomSacrificed.size() > index and roomHealth.size() > index:
+		return roomSacrificed[index] + roomHealth[index]
+	return 0
 
 
