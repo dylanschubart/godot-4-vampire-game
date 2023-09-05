@@ -50,3 +50,7 @@ func _on_options_mouse_entered():
 
 func _on_start_mouse_entered():
 	Audio.get_node("button_click").play()
+
+
+func _on_exit_pressed():
+	get_tree().quit()

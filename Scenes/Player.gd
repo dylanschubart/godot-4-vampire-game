@@ -218,6 +218,9 @@ func startE():
 func endE():
 	labelE.visible = false
 	
+func finishDialogue():
+	await get_tree().create_timer(1).timeout
+	dialogueIsFinished = true
 
 #AnimationPlayer Signal, if an animation finishes it sends a signal to this linked connection and we can check if specific animations have ended
 func _on_animation_player_animation_finished(anim_name):

@@ -37,3 +37,9 @@ func _on_resolution_options_item_selected(_index):
 	Audio.get_node("button_click").play()
 	var sizeRes = resolutions.get(_resolutionOptions.get_item_text(_resolutionOptions.get_selected_id()))
 	DisplayServer.window_set_size(sizeRes)
+
+
+func _on_back_to_title_pressed():
+	get_tree().paused = false
+	get_parent().hide()
+	SceneManager.changeSceneWithTransition(SceneManager.titleScreen, false)

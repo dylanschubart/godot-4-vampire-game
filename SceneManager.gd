@@ -4,6 +4,8 @@ var currentScene = null
 var sceneChange = false
 var nextScene
 
+var titleScreen = "res://Scenes/UI/title_screen.tscn"
+
 const scenes = [("res://world.tscn")
 ,("res://Scenes/Rooms/room_1.tscn")]
 var levels = [("res://world.tscn")
