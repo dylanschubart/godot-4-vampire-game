@@ -21,6 +21,7 @@ func changeSceneWithTransition(scenePath, is_level):
 		Audio.get_node("level_transition").play()
 		Audio.get_node("BGHub").stop()
 		get_node("CanvasLayer/ColorRect").hide()
+		get_node("Camera2D").enabled = true
 		get_node("Camera2D").make_current()
 		get_node("AnimationPlayer").play("LevelTransition")
 		get_node("SpiralTransition/AnimationPlayer").play("Spiral")
@@ -31,6 +32,7 @@ func changeSceneWithTransition(scenePath, is_level):
 		get_node("CanvasLayer/ColorRect").hide()
 		playerCamera = get_viewport().get_camera_2d()
 		playerCamera.make_current()
+		get_node("Camera2D").enabled = false
 	else:
 		get_node("CanvasLayer/ColorRect").show()
 		get_node("AnimationPlayer").play("TransIn")

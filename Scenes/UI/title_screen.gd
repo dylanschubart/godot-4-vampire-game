@@ -12,6 +12,7 @@ func _ready():
 	_animation_player.play("Start")
 	await _animation_player.animation_finished
 	_animation_player.play("PressAnyKey")
+	ResourceManager.wipe()
 	
 	
 func _unhandled_input(event):

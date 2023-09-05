@@ -27,6 +27,7 @@ func _ready():
 	Audio.get_node("BGHub").play()
 	Audio.get_node("BGTitleScreen").stop()
 	Audio.get_node("BGLevel").stop()
+		
 	if !startAnimationEnded and !reached_flying_end:
 		_animation_player.play("Bat")
 		
@@ -34,16 +35,14 @@ func _ready():
 	var levelInfo = ResourceManager.getLevelInfo(0)
 	if levelInfo == 9:
 		DialogueManager.showDialogueBox("res://Assets/Dialogue/GoodDialogue.json")
+		_animation_player.play("Idle")
 		needToFlyAway = true
 		dialogueIsFinished = false
 	elif levelInfo != 0:
 		DialogueManager.showDialogueBox("res://Assets/Dialogue/BadDialogue.json")
+		
 	
 func _physics_process(delta):
-	if Input.is_action_just_pressed("DebugInteract"):
-		DialogueManager.showDialogueBox("res://Assets/Dialogue/GoodDialogue.json")
-		needToFlyAway = true
-		dialogueIsFinished = false
 	#flyingaway after completing the level
 	if needToFlyAway and dialogueIsFinished: 
 		#transform
@@ -80,6 +79,9 @@ func _physics_process(delta):
 		
 	if flying_path.get_progress_ratio() == 1:
 		reached_flying_end = true
+		if flyingAway:
+			SceneManager.changeSceneWithTransition(SceneManager.titleScreen, false)
+			flyingAway = false
 		
 	if needToFlyAway: 
 		return	

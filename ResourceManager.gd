@@ -105,4 +105,15 @@ func getLevelInfo(index):
 		return int(roomSacrificed[index]) + int(roomHealth[index])
 	return 0
 
+func wipe():
+	#hubSave
+	hubPlayerPosition = null
+	hubDaddyProgress = null
+	hubOpenedDoors = []
+
+#roomSaves
+	roomPlayerPosition = []
+	roomSacrificed = []
+	roomHealth = []
+	wentIntoLevel = null
 
